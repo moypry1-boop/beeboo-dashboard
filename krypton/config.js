@@ -3,6 +3,10 @@
 //  غيّر القيم دي حسب السيرفر بتاعك
 // ═══════════════════════════════════════════════
 
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
+require('dotenv').config();
+
 module.exports = {
   // ─── توكن البوت ───
   token: process.env.KRYPTON_BOT_TOKEN || process.env.BOT_TOKEN || '',

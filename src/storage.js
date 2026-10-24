@@ -1,5 +1,6 @@
 // تخزين بسيط بملفات JSON - بدون أي مكتبات خارجية
 // يدعم: بوتات متعددة + إعدادات لكل (بوت, سيرفر) + كلمة سر اللوحة
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -56,7 +57,15 @@ function setPassword(newPlain) {
 }
 
 // ================= البوتات (حتى 100) =================
-function getBots() { return Array.isArray(db.bots) ? db.bots : []; }
+function getBots() {
+  const bots = Array.isArray(db.bots) ? db.bots : [];
+  return bots.map((b) => {
+    if (!b.token && process.env.BOT_TOKEN) {
+      return { ...b, token: process.env.BOT_TOKEN };
+    }
+    return b;
+  });
+}
 function getBot(id) { return getBots().find((b) => b.id === id); }
 function saveBot(entry) {
   db.bots = getBots().filter((b) => b.id !== entry.id);
