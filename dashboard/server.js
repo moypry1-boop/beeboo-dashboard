@@ -27,6 +27,28 @@ module.exports = function startDashboard() {
       crossOriginEmbedderPolicy: false,
     }));
 
+    // ===== PERSISTENT KEEP-ALIVE & VOICE MONITORING ENDPOINT =====
+    // يسمح لـ Vercel Cron وخدمات المراقبة بإنعاش العمليات والتحقق من رومات الصوت الـ 9
+    app.all(['/api/keepalive', '/ping'], async (req, res) => {
+      try {
+        const { verifyAndKeepAlivePool } = require('../src/bot/voiceEngine');
+        const botsStatus = await verifyAndKeepAlivePool();
+        const activeBots = Array.isArray(botsStatus) ? botsStatus.filter(b => b.online).length : 0;
+        const inVoice = Array.isArray(botsStatus) ? botsStatus.filter(b => b.voiceStatus === 'connected_ready' || b.voiceStatus === 'rejoined').length : 0;
+        return res.json({
+          ok: true,
+          status: 'healthy',
+          timestamp: new Date().toISOString(),
+          uptimeSeconds: Math.floor(process.uptime()),
+          botsActive: activeBots,
+          botsInVoice: inVoice,
+          details: botsStatus,
+        });
+      } catch (err) {
+        return res.status(500).json({ ok: false, error: err.message });
+      }
+    });
+
     // ===== Global Rate Limiting =====
     const globalLimiter = rateLimit({
       windowMs: 15 * 60 * 1000, // 15 minutes

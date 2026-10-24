@@ -1639,10 +1639,1272 @@
         "data": {}
       },
       "streaksMeta": {}
+    },
+    "1536510357370314812_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536635011162308638"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536518247950590032_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589886889529465"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536553370502832178_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589881055117434"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612024208068608_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589878106787920"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612088770994176_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589890299502733"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612140872368248_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589893000499291"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612213245354094_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589896700002366"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612272493953084_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589899631960134"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    },
+    "1536612331654742128_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": false,
+        "channelId": "",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": false,
+        "channelId": "",
+        "items": []
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 0,
+        "joinsToday": 0,
+        "leavesToday": 0,
+        "dateKey": "",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589903301840996"
+      },
+      "ai": {
+        "enabled": false,
+        "channelId": ""
+      },
+      "streaks": {
+        "enabled": false,
+        "forumChannelId": "",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
     }
   },
   "secretPass": {
     "salt": "c4b04186a4e0b8ab18bc061a436d996a",
     "hash": "a8908449680d092f4b88e17e2b1bed054f6d1728a332c2cecaeca857aee938764af8da0ea2308b9ba6cf7d57e7323bdda6622ca3b0fc369f8bf98ea78b61cd94"
+  },
+  "voiceMap": {
+    "1536510357370314812": "1536635011162308638",
+    "1536518247950590032": "1536589886889529465",
+    "1536553370502832178": "1536589881055117434",
+    "1536612024208068608": "1536589878106787920",
+    "1536612088770994176": "1536589890299502733",
+    "1536612140872368248": "1536589893000499291",
+    "1536612213245354094": "1536589896700002366",
+    "1536612272493953084": "1536589899631960134",
+    "1536612331654742128": "1536589903301840996"
   }
 }

@@ -73,18 +73,18 @@ async function main() {
   const startDashboard = require('./dashboard/server');
   const app = await startDashboard();
 
-  // بوت متجر KRYPTON + مهام البوتات الخلفية (في البيئات المستمرة فقط)
+  // بوت متجر KRYPTON (في البيئات الداعمة)
+  try {
+    require('./src/bot/kryptonLoader').init();
+  } catch (e) {
+    console.error('[KRYPTON] فشل تشغيل البوت:', e.message);
+  }
+
+  // محرك الـ Keep-Alive الدائم (Self-Pinging Loop كل 3 دقائق + فحص البوتات والرومات الصوتية)
+  startKeepAliveLoop();
+
+  // المهمات الدورية: السحبات + الرسائل المجدولة + ترحيل الإحصائيات (في البيئات المستمرة)
   if (!process.env.VERCEL) {
-    try {
-      require('./src/bot/kryptonLoader').init();
-    } catch (e) {
-      console.error('[KRYPTON] فشل تشغيل البوت:', e.message);
-    }
-
-    // تشغيل كل البوتات المحفوظة
-    await pool.startAll();
-
-    // المهمات الدورية: السحبات + الرسائل المجدولة + ترحيل الإحصائيات
     const giveaways = require('./src/bot/features/giveaways');
     const autoPoster = require('./src/bot/features/autoPoster');
     const stats = require('./src/bot/features/stats');
@@ -104,6 +104,46 @@ async function main() {
   }
 
   return app;
+}
+
+let keepAliveStarted = false;
+function startKeepAliveLoop() {
+  if (keepAliveStarted) return;
+  keepAliveStarted = true;
+
+  const PING_INTERVAL_MS = 3 * 60 * 1000; // 3 minutes
+  const baseUrl = (process.env.BASE_URL || `http://localhost:${config.port || 3000}`).replace(/\/$/, '');
+
+  console.log(`[KEEP-ALIVE] 🔄 تشغيل محرك Keep-Alive الدوري (كل 3 دقائق) — المستهدف: ${baseUrl}`);
+
+  const runKeepAliveCycle = async () => {
+    try {
+      // 1. فحص وتأكيد اتصال جميع بوتات البوول الـ 9 بالـ Gateway وبالرومات الصوتية
+      const { verifyAndKeepAlivePool } = require('./src/bot/voiceEngine');
+      const results = await verifyAndKeepAlivePool();
+      const activeCount = Array.isArray(results) ? results.filter((r) => r.online).length : 0;
+      const voiceCount = Array.isArray(results) ? results.filter((r) => r.voiceStatus === 'connected_ready' || r.voiceStatus === 'rejoined').length : 0;
+      console.log(`[KEEP-ALIVE] 🤖 فحص البوتات: ${activeCount}/9 أونلاين | 🔊 رومات صوتية: ${voiceCount}/9 نشطة`);
+
+      // 2. إرسال Self-Ping عبر HTTP لمنع السيرفر من الدخول في وضع الخمول (Sleep/Idle)
+      if (baseUrl && (baseUrl.startsWith('http://') || baseUrl.startsWith('https://'))) {
+        const pingUrl = `${baseUrl}/api/keepalive`;
+        const res = await fetch(pingUrl, {
+          method: 'GET',
+          headers: { 'User-Agent': 'Beeboo-KeepAlive-SelfPing/1.0' },
+        }).catch((err) => ({ ok: false, status: err.message }));
+        console.log(`[KEEP-ALIVE] 🌐 نتيجة Self-Ping (${pingUrl}): ${res.status || 'OK'}`);
+      }
+    } catch (e) {
+      console.error('[KEEP-ALIVE ERROR]', e.message);
+    }
+  };
+
+  // دورة فحص أولية بعد 3 ثواني
+  setTimeout(runKeepAliveCycle, 3000);
+
+  // تكرار دوري مستمر كل 3 دقائق
+  return setInterval(runKeepAliveCycle, PING_INTERVAL_MS);
 }
 
 let appPromise = null;
