@@ -8,10 +8,18 @@ function createClient(token, botId, entry = {}) {
       GatewayIntentBits.GuildMembers,
       GatewayIntentBits.GuildMessages,
       GatewayIntentBits.MessageContent,
-      GatewayIntentBits.GuildModeration,
       GatewayIntentBits.GuildVoiceStates, // للصوت والميوزك
+      GatewayIntentBits.GuildModeration,
+      GatewayIntentBits.GuildPresences,
+      GatewayIntentBits.GuildMessageReactions,
     ],
-    partials: [Partials.Message, Partials.Channel],
+    partials: [
+      Partials.Message,
+      Partials.Channel,
+      Partials.GuildMember,
+      Partials.Reaction,
+      Partials.User,
+    ],
   });
 
   client._token = token;

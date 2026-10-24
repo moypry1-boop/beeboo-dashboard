@@ -57,13 +57,45 @@ function setPassword(newPlain) {
 }
 
 // ================= البوتات (حتى 100) =================
+const DEFAULT_POOL_BOTS = [
+  { id: '1536510357370314812', label: 'بوت 1 (صوتي)' },
+  { id: '1536518247950590032', label: 'بوت 2 (صوتي)' },
+  { id: '1536553370502832178', label: 'بوت 3 (صوتي)' },
+  { id: '1536612024208068608', label: 'بوت 4 (صوتي)' },
+  { id: '1536612088770994176', label: 'بوت 5 (صوتي)' },
+  { id: '1536612140872368248', label: 'بوت 6 (صوتي)' },
+  { id: '1536612213245354094', label: 'بوت 7 (صوتي)' },
+  { id: '1536612272493953084', label: 'بوت 8 (صوتي)' },
+  { id: '1536612331654742128', label: 'بوت 9 (صوتي)' },
+];
+
 function getBots() {
-  const bots = Array.isArray(db.bots) ? db.bots : [];
-  return bots.map((b) => {
-    if (!b.token && process.env.BOT_TOKEN) {
-      return { ...b, token: process.env.BOT_TOKEN };
+  const existingBots = Array.isArray(db.bots) ? [...db.bots] : [];
+
+  // دمج البوتات الـ 9 إن لم تكن مسجلة بالفعل
+  for (const defaultBot of DEFAULT_POOL_BOTS) {
+    if (!existingBots.some((b) => b.id === defaultBot.id)) {
+      existingBots.push({
+        ...defaultBot,
+        token: '',
+        addedAt: Date.now(),
+      });
     }
-    return b;
+  }
+
+  return existingBots.map((b, index) => {
+    // 1. قراءة التوكن مباشرة من متغيرات البيئة BOT_TOKEN_1 إلى BOT_TOKEN_9
+    const envTokenByIndex = process.env[`BOT_TOKEN_${index + 1}`];
+    // 2. قراءة التوكن بواسطة معرّف البوت BOT_TOKEN_<botId>
+    const envTokenById = process.env[`BOT_TOKEN_${b.id}`];
+    // 3. التوكن العام البديل BOT_TOKEN أو KRYPTON_BOT_TOKEN
+    const fallbackToken = process.env.BOT_TOKEN || process.env.KRYPTON_BOT_TOKEN || '';
+
+    const resolvedToken = (envTokenByIndex || envTokenById || b.token || fallbackToken || '').trim();
+    return {
+      ...b,
+      token: resolvedToken,
+    };
   });
 }
 function getBot(id) { return getBots().find((b) => b.id === id); }
