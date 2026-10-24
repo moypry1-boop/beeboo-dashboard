@@ -100,13 +100,17 @@ async function verifyAndKeepAlivePool() {
             if (inVoice && connReady) {
               voiceStatus = 'connected_ready';
               break;
-            } else {
+            } else if (!process.env.VERCEL) {
+              // الاتصال الصوتي عبر UDP يعمل في البيئات المستمرة (Worker/VPS/Local)
               storage.updateGuild(botId, guild.id, (g) => {
                 g.voiceStay.enabled = true;
                 g.voiceStay.channelId = ch.id;
               });
               await voiceStay.joinIfEnabled(client, botId, guild);
               voiceStatus = 'rejoined';
+              break;
+            } else {
+              voiceStatus = inVoice ? 'in_channel_serverless' : 'gateway_verified';
               break;
             }
           }
