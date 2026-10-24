@@ -1,0 +1,48 @@
+<%- include('partials/head', { title: 'الأعضاء — ' + guild.name }) %>
+<%- include('partials/nav') %>
+<main class="container server-page" data-bot="<%= botId %>" data-guild="<%= guild.id %>">
+  <div class="server-header">
+    <% if (guild.icon) { %><img src="<%= guild.icon %>" class="server-icon"><% } else { %><div class="server-icon fallback"><%= guild.name.charAt(0) %></div><% } %>
+    <div class="server-meta">
+      <h1>👥 الأعضاء</h1>
+      <div class="chips"><span class="chip">🤖 <%= botTag %></span><span class="chip">👥 <%= guild.memberCount %> عضو</span></div>
+    </div>
+    <%- include('partials/servernav', { botId, guildId: guild.id }) %>
+  </div>
+
+  <div class="card">
+    <div class="members-bar">
+      <input type="text" id="member-search" placeholder="🔍 ابحث بالاسم أو الآي دي..." dir="ltr">
+      <button class="btn btn-outline" id="refresh-members">🔄 تحديث</button>
+    </div>
+    <p class="muted" id="members-count"></p>
+    <table class="table" id="members-table">
+      <thead><tr><th>العضو</th><th>الرتب</th><th>إجراءات</th></tr></thead>
+      <tbody id="members-body"></tbody>
+    </table>
+    <div class="pager">
+      <button class="btn btn-sm btn-ghost" id="prev-page">← السابق</button>
+      <span id="page-info"></span>
+      <button class="btn btn-sm btn-ghost" id="next-page">التالي →</button>
+    </div>
+  </div>
+
+  <!-- مودال الإجراءات -->
+  <div id="action-modal" class="modal hidden">
+    <div class="modal-card">
+      <h3 id="am-title">تنفيذ إجراء</h3>
+      <label>السبب</label><input type="text" id="am-reason" value="بدون سبب">
+      <div id="am-minutes-wrap"><label>المدة (دقايق)</label><input type="number" id="am-minutes" value="10" min="1"></div>
+      <div class="row2 mt16">
+        <button class="btn btn-danger" id="am-confirm">تنفيذ</button>
+        <button class="btn btn-ghost" id="am-cancel">إلغاء</button>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>GUILD_ID = "<%= guild.id %>"; BOT_ID = "<%= botId %>"; BOT_TAG = "<%= botTag %>"; PAGE_TYPE = "members";</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

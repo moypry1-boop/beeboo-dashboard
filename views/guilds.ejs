@@ -1,0 +1,50 @@
+<%- include('partials/head', { title: bot.label + ' — Red Bull' }) %>
+<%- include('partials/nav') %>
+<main class="container">
+  <div class="server-header">
+    <% if (bot.avatar) { %><img src="<%= bot.avatar %>" class="server-icon"><% } else { %><div class="server-icon fallback">🤖</div><% } %>
+    <div class="server-meta">
+      <h1><%= bot.label %></h1>
+      <div class="chips">
+        <span class="chip">🟢 <%= bot.tag || 'شغال' %></span>
+        <span class="chip">👥 <%= guilds.length %> سيرفر</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-inline-start:auto">
+      <a href="/bot/<%= bot.id %>/profile" class="btn btn-outline">🎭 شكل البوت</a>
+      <a href="/" class="btn btn-ghost">← البوتات</a>
+    </div>
+  </div>
+
+  <p class="muted mb24">اختار السيرفر عشان تفتح لوحته</p>
+
+  <% if (!guilds.length) { %>
+    <div class="card center-card">
+      <p>البوت ده مش في أي سيرفر لسه.</p>
+      <a class="btn btn-primary mt16" target="_blank"
+         href="https://discord.com/oauth2/authorize?client_id=<%= clientIdForInvite %>&scope=bot%20applications.commands&permissions=8">
+         ➕ دعوة البوت لسيرفرك
+      </a>
+    </div>
+  <% } %>
+
+  <div class="guild-grid">
+    <% for (const g of guilds) { %>
+      <div class="guild-card">
+        <div class="guild-head">
+          <% if (g.icon) { %><img src="<%= g.icon %>" alt="" class="guild-icon"><% } else { %><div class="guild-icon guild-icon-fallback"><%= g.name.charAt(0) %></div><% } %>
+          <div class="guild-name">
+            <strong title="<%= g.name %>"><%= g.name %></strong>
+            <small>👥 <%= g.memberCount %> عضو</small>
+          </div>
+        </div>
+        <div class="guild-actions">
+          <a class="btn btn-primary btn-block" href="/server/<%= bot.id %>/<%= g.id %>">⚙️ فتح اللوحة</a>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+</body>
+</html>

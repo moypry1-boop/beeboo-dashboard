@@ -1,0 +1,38 @@
+<%- include('partials/head', { title: 'رسائل خاصة' }) %>
+<%- include('partials/nav') %>
+<main class="container">
+  <h1 class="page-title">💬 رسائل خاصة (DM)</h1>
+  <p class="muted mb24">اكتب الرسالة وابعت لكل أعضاء السيرفر مرة واحدة</p>
+
+  <% if (msg && msg.text) { %>
+    <div class="card mb16" style="background:<%= msg.ok ? 'rgba(40,167,69,.12)' : 'rgba(220,53,69,.12)' %>;border-color:<%= msg.ok ? 'var(--green)' : 'var(--red)' %>">
+      <b style="color:<%= msg.ok ? 'var(--green)' : 'var(--red)' %>"><%= msg.text %></b>
+    </div>
+  <% } %>
+
+  <form method="POST" action="/dm/send">
+    <div class="card">
+      <label>🤖 البوت اللي هيبعت</label>
+      <select id="dm-bot" name="botId" onchange="window.location='?botId='+encodeURIComponent(this.value)">
+        <% for (const b of bots) { %>
+          <option value="<%= b.id %>" <%= String(b.id) === String(botId) ? 'selected' : '' %>><%= b.label %> (<%= b.tag %>)</option>
+        <% } %>
+      </select>
+
+      <label>📡 السيرفر</label>
+      <select id="dm-guild" name="guildId" onchange="window.location='?botId='+encodeURIComponent(document.getElementById('dm-bot').value)+'&guildId='+encodeURIComponent(this.value)">
+        <% for (const g of guilds) { %>
+          <option value="<%= g.id %>" <%= String(g.id) === String(guildId) ? 'selected' : '' %>><%= g.name %> (<%= g.memberCount %> عضو)</option>
+        <% } %>
+      </select>
+
+      <label>💬 الرسالة</label>
+      <textarea name="content" rows="4" dir="auto" placeholder="اكتب الرسالة اللي تحبها..."><%= content %></textarea>
+
+      <button type="submit" class="btn btn-success btn-block mt16" style="font-size:18px;padding:14px">📬 إرسال للكل في السيرفر</button>
+      <p class="hint mt8">⚠️ الرسالة هتوصل لكل أعضاء السيرفر اللي فوق (غير البوتات). خد بالك من الـ DMs.</p>
+    </div>
+  </form>
+</main>
+</body>
+</html>

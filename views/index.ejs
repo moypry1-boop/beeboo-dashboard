@@ -1,0 +1,194 @@
+<%- include('partials/head', { title: 'البوتات' }) %>
+<%- include('partials/nav') %>
+<main class="container">
+  <h1 class="page-title">🤖 البوتات</h1>
+  <p class="muted mb24">البوتات المتصلة — تقدر تضيف حتى 100 بوت</p>
+
+  <!-- إحصائيات -->
+  <div class="stat-grid">
+    <div class="stat-card"><span class="stat-num"><%= bots.filter(b => b.online).length %></span><span>بوت شغال</span></div>
+    <div class="stat-card"><span class="stat-num"><%= bots.reduce((a, b) => a + (b.guildsCount || 0), 0) %></span><span>سيرفر</span></div>
+    <div class="stat-card"><span class="stat-num"><%= totalLimit - bots.length %></span><span>مكان متاح</span></div>
+  </div>
+
+  <div class="bots-grid">
+    <!-- كروت البوتات -->
+    <% for (const b of bots) { %>
+      <div class="guild-card">
+        <div class="guild-head">
+          <% if (b.avatar) { %><img src="<%= b.avatar %>" class="guild-icon"><% } else { %><div class="guild-icon guild-icon-fallback">🤖</div><% } %>
+          <div class="guild-name">
+            <strong title="<%= b.label %>"><%= b.label %></strong>
+            <small><%= b.tag || '—' %></small>
+          </div>
+        </div>
+        <div class="bot-status-row">
+          <% if (b.online) { %>
+            <span class="badge on">🟢 شغال</span>
+            <span class="chip">👥 <%= b.guildsCount %> سيرفر</span>
+          <% } else { %>
+            <span class="badge off">🔴 واقف</span>
+            <% if (b.error) { %><small class="muted err-text" title="<%= b.error %>"><%= String(b.error).slice(0, 40) %></small><% } %>
+          <% } %>
+        </div>
+        <div class="guild-actions row-actions">
+          <a class="btn btn-primary btn-block" href="/bot/<%= b.id %>">🖥️ السيرفرات</a>
+          <button class="btn btn-danger bot-del" data-id="<%= b.id %>" data-name="<%= b.label %>">🗑️</button>
+        </div>
+      </div>
+    <% } %>
+
+    <!-- كارت إضافة بوت -->
+    <div class="guild-card add-card">
+      <form id="add-bot-form">
+        <h3>➕ إضافة بوت جديد</h3>
+        <label>اسم للبوت (اختياري)</label>
+        <input type="text" id="bot-label" placeholder="مثلاً: بوت الحماية" maxlength="30">
+        <label>توكن البوت</label>
+        <input type="password" id="bot-token" placeholder="MTIzNDU2Nzg5..." dir="ltr" required>
+        <% if (isOwner) { %>
+          <label class="checkbox-line mt8"><input type="checkbox" id="bot-hidden"> 🤫 بوت مخفي (للمالك بس — مش بيظهر في اللوحة)</label>
+          <label>🛠️ سكربت خاص (اختياري — لبوت المتجر وغيره)</label>
+          <select id="bot-script">
+            <option value="">— من غير سكربت خاص (بوت عادي) —</option>
+            <option value="shop">🛒 بوت المتجر</option>
+          </select>
+        <% } %>
+        <p class="hint">التوكن من تبويب Bot في الديفلوبر بورتال — ولازم تكون فعّال Server Members + Message Content Intents.</p>
+        <button type="submit" class="btn btn-success btn-block">🚀 إضافة وتشغيل</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- إعدادات اللوحة -->
+  <div class="card mt24">
+    <h3>🔑 تغيير كلمة سر اللوحة</h3>
+    <div class="row2 pass-grid">
+      <div><label>كلمة السر الحالية</label><input type="password" id="pw-current"></div>
+      <div><label>كلمة السر الجديدة (6+ حروف)</label><input type="password" id="pw-new1"></div>
+      <div><label>تأكيد الجديدة</label><input type="password" id="pw-new2"></div>
+      <div class="align-end"><button class="btn btn-primary" id="pw-save">💾 تحديث</button></div>
+    </div>
+  </div>
+
+  <!-- زرار دخول الكل للروم الصوتية -->
+  <div class="card mt24">
+    <h3>🔊 دخول كل البوتات للروم الصوتية</h3>
+    <p class="muted mb16">ادخل كل البوتات في أول روم صوتية في كل سيرفر تلقائي</p>
+    <button class="btn btn-success btn-block" id="btn-join-all-voice">🔊 دخول الكل</button>
+    <div id="join-all-status" style="margin-top:10px;font-size:13px"></div>
+  </div>
+</main>
+
+<div id="toast-wrap"></div>
+
+<!-- Easter Egg: RED BULL -->
+<div id="rb-tracker" style="position:fixed;bottom:6px;right:12px;user-select:none;z-index:9999">
+  <span id="rb-word" style="font-size:9px;color:rgba(255,255,255,.08);cursor:default;letter-spacing:1px">RED BULL</span>
+  <!-- زرار مخفي — كلّك عليه يفتح اللوحة -->
+  <span id="rb-trigger" role="button" tabindex="0" style="position:fixed;bottom:0;right:0;width:6px;height:6px;opacity:0;cursor:crosshair;z-index:9999"></span>
+</div>
+
+<!-- مودال كلمة السر السرية -->
+<div class="modal-overlay hidden" id="secret-modal">
+  <div class="modal" style="max-width:380px;text-align:center">
+    <h2 id="secret-title">🔑</h2>
+    <p id="secret-desc" class="muted mb16"></p>
+    <div id="secret-form">
+      <input type="password" id="secret-pw1" placeholder="كلمة السر" class="mb12" autocomplete="off">
+      <input type="password" id="secret-pw2" placeholder="تأكيد كلمة السر" class="mb12" autocomplete="off">
+      <p id="secret-error" style="color:var(--red);font-size:13px;min-height:18px"></p>
+      <button class="btn btn-primary btn-block" id="secret-submit">🔓</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script>
+// Easter Egg: RED BULL — Shift+Y لفتح اللوحة السرية
+(function(){
+  const modal = document.getElementById('secret-modal');
+  const title = document.getElementById('secret-title');
+  const desc = document.getElementById('secret-desc');
+  const pw1 = document.getElementById('secret-pw1');
+  const pw2 = document.getElementById('secret-pw2');
+  const err = document.getElementById('secret-error');
+  const btn = document.getElementById('secret-submit');
+  let isSetup = false;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'F9') { e.preventDefault(); openSecret(); }
+  });
+  // fallback: كلّك على الزرار المخفي
+  document.getElementById('rb-trigger')?.addEventListener('click', openSecret);
+
+  function openSecret() {
+    pw1.value = ''; pw2.value = ''; err.textContent = '';
+    fetch('/api/secret/status').then(r=>r.json()).then(d=>{
+      if (d.unlocked) { location.href='/secret'; return; }
+      isSetup = !d.configured;
+      title.textContent = isSetup ? '🔑 كلمة السر الجديدة' : '🔑 اللوحة السرية';
+      desc.textContent = isSetup ? 'أول مرة؟ حط كلمة سر جديدة' : 'ادخل كلمة السر';
+      pw2.style.display = isSetup ? '' : 'none';
+      btn.textContent = isSetup ? '✅ إعداد' : '🔓 فتح';
+      modal.classList.remove('hidden');
+      pw1.focus();
+    });
+  }
+
+  btn.addEventListener('click', doSecret);
+  pw2.addEventListener('keydown', (e)=>{ if(e.key==='Enter') doSecret(); });
+  pw1.addEventListener('keydown', (e)=>{ if(e.key==='Enter') doSecret(); });
+
+  async function doSecret() {
+    err.textContent = '';
+    const p1 = pw1.value.trim();
+    const p2 = pw2.value.trim();
+    if (!p1) { err.textContent = 'ادخل كلمة السر'; return; }
+    if (isSetup && p1 !== p2) { err.textContent = 'الكلمتين مش متطابقين'; return; }
+
+    if (isSetup) {
+      const r = await fetch('/api/secret/setup', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:p1})});
+      const d = await r.json();
+      if (!d.ok) { err.textContent = d.error || 'خطأ'; return; }
+    }
+    // unlock
+    const r = await fetch('/api/secret/unlock', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:p1})});
+    const d = await r.json();
+    if (!d.ok) { err.textContent = d.error || 'كلمة السر غلط'; return; }
+    const bId = localStorage.getItem('secretBot') || '';
+    const gId = localStorage.getItem('secretGuild') || '';
+    const qs = bId && gId ? '?botId='+bId+'&guildId='+gId : '';
+    location.href = '/secret' + qs;
+  }
+
+  // ESC يقفل المودال
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.add('hidden'); });
+})();
+
+// زرار دخول كل البوتات للروم الصوتية
+document.getElementById('btn-join-all-voice')?.addEventListener('click', async function() {
+  const btn = this;
+  const status = document.getElementById('join-all-status');
+  btn.disabled = true;
+  btn.textContent = '⏳ جاري دخول كل البوتات...';
+  status.textContent = '';
+  try {
+    const res = await fetch('/api/voice-join-all', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+    const data = await res.json();
+    if (data.ok && data.results) {
+      const ok = data.results.filter(r => r.ok).length;
+      const fail = data.results.filter(r => !r.ok).length;
+      status.innerHTML = `✅ دخل ${ok} روم | ❌ فشل ${fail}<br>` +
+        data.results.map(r => `${r.ok ? '✅' : '❌'} ${r.bot} → ${r.guild} (${r.channel})${r.error ? ' — ' + r.error : ''}`).join('<br>');
+    } else {
+      status.textContent = '❌ ' + (data.error || 'خطأ');
+    }
+  } catch { status.textContent = '❌ فشل الاتصال'; }
+  btn.disabled = false;
+  btn.textContent = '🔊 دخول الكل';
+})();
+</script>
+</body>
+</html>

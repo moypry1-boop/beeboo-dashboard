@@ -1,0 +1,128 @@
+<%- include('partials/head', { title: 'شكل البوت — ' + label }) %>
+<%- include('partials/nav') %>
+<main class="container server-page" data-bot="<%= botId %>">
+  <div class="server-header">
+    <div class="avatar-wrap" id="pv-wrap">
+      <img src="<%= prof.avatar %>" class="profile-avatar" id="pv-avatar" alt="">
+      <span class="status-dot st-<%= prof.status %>" id="pv-dot" title=""></span>
+    </div>
+    <div class="server-meta">
+      <h1>🎭 شكل البوت</h1>
+      <div class="chips">
+        <span class="chip" id="pv-tag"><%= prof.tag %></span>
+        <span class="chip">🆔 <code><%= prof.id %></code></span>
+      </div>
+    </div>
+    <a href="/bot/<%= botId %>" class="btn btn-ghost back-btn">← السيرفرات</a>
+  </div>
+
+  <div class="profile-grid mt24">
+    <!-- العمود اليمين: الفورمات -->
+    <div>
+      <!-- الصورة والاسم -->
+      <form class="card" id="pr-form">
+        <h3>🖼️ الصورة والاسم</h3>
+
+        <label>صورة البروفايل الجديدة (من جهازك)</label>
+        <input type="file" id="pr-file" accept="image/png,image/jpeg,image/webp,image/gif">
+        <p class="hint">أي صورة هتتحول تلقائياً لـ PNG بمقاس 512×512. الجيف مدعوم برضو ✨</p>
+
+        <label>أو الصق رابط صورة</label>
+        <input type="text" id="pr-url" dir="ltr" placeholder="https://example.com/avatar.png">
+
+        <label>اسم البوت (Username)</label>
+        <input type="text" id="pr-username" dir="ltr" maxlength="32" value="<%= prof.username %>">
+        <p class="hint">⚠️ ديسكورد بيسمح بتغيير الاسم مرتين في الساعة بس.</p>
+
+        <button type="submit" class="btn btn-primary btn-block mt16">💾 حفظ البروفايل</button>
+      </form>
+
+      <!-- الحالة والنشاط -->
+      <form class="card" id="ps-form">
+        <h3>✨ الحالة والنشاط</h3>
+
+        <label>حالة الاتصال</label>
+        <select id="ps-status">
+          <option value="online" <%= prof.status==='online'?'selected':'' %>>🟢 أونلاين</option>
+          <option value="idle" <%= prof.status==='idle'?'selected':'' %>>🟡 مشغول بعيد (Idle)</option>
+          <option value="dnd" <%= prof.status==='dnd'?'selected':'' %>>🔴 ماتزعجلنيش (DND)</option>
+          <option value="invisible" <%= prof.status==='invisible'?'selected':'' %>>⚫ يبدو أوفلاين (مخفي)</option>
+        </select>
+
+        <label>نوع النشاط</label>
+        <select id="ps-type">
+          <option value="none" <%= prof.actType==='none'?'selected':'' %>>— بدون نشاط —</option>
+          <option value="0" <%= prof.actType==='0'?'selected':'' %>>🎮 يلعب</option>
+          <option value="1" <%= prof.actType==='1'?'selected':'' %>>📺 بث مباشر</option>
+          <option value="2" <%= prof.actType==='2'?'selected':'' %>>🎵 يستمع إلى</option>
+          <option value="3" <%= prof.actType==='3'?'selected':'' %>>👀 يشاهد</option>
+          <option value="5" <%= prof.actType==='5'?'selected':'' %>>🏆 يتنافس في</option>
+          <option value="4" <%= prof.actType==='4'?'selected':'' %>>💬 ستاتس مخصص</option>
+        </select>
+
+        <label id="ps-name-label">نص النشاط</label>
+        <input type="text" id="ps-name" maxlength="128" placeholder="زي: Fortnite 🎮" value="<%= prof.actName %>">
+
+        <div id="ps-stream-wrap" style="display:none">
+          <label>لينك البث (Twitch أو YouTube)</label>
+          <input type="text" id="ps-stream" dir="ltr" placeholder="https://twitch.tv/username">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mt16">✨ حفظ الحالة</button>
+      </form>
+    </div>
+
+    <!-- العمود الشمال: معاينة ديسكورد -->
+    <div>
+      <div class="card discord-profile-card">
+        <h3>👁️ المعاينة — شكل البوت في ديسكورد</h3>
+
+        <!-- كارت البروفايل -->
+        <div class="dp-card">
+          <div class="dp-banner"></div>
+          <img src="<%= prof.avatar %>" class="dp-avatar" id="pv2-avatar" alt="">
+          <div class="dp-body">
+            <div class="dp-name-row">
+              <strong id="pv2-name"><%= prof.username %></strong>
+              <span class="status-dot sm st-<%= prof.status %>" id="pv2-dot"></span>
+            </div>
+            <div class="dp-activity" id="pv2-activity">
+              <% if (prof.actType !== 'none' && prof.actName) { %>
+                <%= ({'0':'🎮 يلعب','1':'📺 بث مباشر','2':'🎵 يستمع إلى','3':'👀 يشاهد','5':'🏆 يتنافس في'})[prof.actType] || '' %> <%= prof.actName %>
+              <% } else if (prof.actType === '4' && prof.actName) { %>
+                💬 <%= prof.actName %>
+              <% } else { %>—<% } %>
+            </div>
+            <div class="dp-divider"></div>
+            <div class="dp-meta">🤖 بوت · <span id="pv2-status-text"></span></div>
+          </div>
+        </div>
+
+        <!-- صف قايمة الأعضاء -->
+        <div class="dp-memberlist mt24">
+          <div class="dp-list-label">الأوفلاين — ١٤٢</div>
+          <div class="dp-member">
+            <div class="dp-member-avatar-wrap">
+              <img src="<%= prof.avatar %>" id="pv3-avatar" alt="">
+              <span class="status-dot sm st-<%= prof.status %>" id="pv3-dot"></span>
+            </div>
+            <div>
+              <div class="dp-member-name"><span id="pv3-name"><%= prof.username %></span> <span class="dp-bot-tag">بوت</span></div>
+              <div class="dp-member-status" id="pv3-activity"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint mt16">المعاينة بتتحدث لحظياً مع أي تغيير فوق ⬆️</p>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>
+  PAGE_TYPE = "profile";
+</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

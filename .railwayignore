@@ -1,0 +1,4 @@
+node_modules/
+.env
+krypton/node_modules/
+krypton/data/*.log

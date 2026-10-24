@@ -1,0 +1,18 @@
+<nav class="topnav">
+  <div class="nav-brand">
+    <img src="/img/logo.png" alt="" class="nav-logo">
+    <span>Red Bull</span>
+  </div>
+  <div class="nav-links">
+    <a href="/dm" class="nav-link">💬 رسائل خاصة</a>
+    <a href="/panel/users" class="nav-link">👤 الحسابات</a>
+    <a href="/panel/auditlog" class="nav-link">🧾 سجل العمليات</a>
+  </div>
+  <div class="nav-user">
+    <% if (typeof authUser !== 'undefined' && authUser) { %>
+      <span class="role-badge role-<%= authUser.role %>"><%= authUser.role === 'owner' ? '👑 مالك' : authUser.role === 'admin' ? '🛡️ أدمن' : '🔨 مشرف' %></span>
+      <span class="nav-username"><%= authUser.username %></span>
+      <a href="/logout" class="btn btn-sm btn-ghost">خروج</a>
+    <% } %>
+  </div>
+</nav>

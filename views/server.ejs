@@ -1,0 +1,638 @@
+<%- include('partials/head', { title: guild.name + ' — Red Bull' }) %>
+<%- include('partials/nav') %>
+
+<main class="container server-page" data-bot="<%= botId %>" data-guild="<%= guild.id %>">
+  <!-- هيدر السيرفر -->
+  <div class="server-header">
+    <% if (guild.icon) { %><img src="<%= guild.icon %>" class="server-icon"><% } else { %><div class="server-icon fallback"><%= guild.name.charAt(0) %></div><% } %>
+    <div class="server-meta">
+      <h1><%= guild.name %></h1>
+      <div class="chips">
+        <span class="chip">🤖 <%= botTag %></span>
+        <span class="chip">👥 <%= guild.memberCount %> عضو</span>
+        <span class="chip">💬 <%= guild.textChannelsCount %> شات</span>
+        <span class="chip">🔊 <%= guild.voiceChannelsCount %> فويس</span>
+        <span class="chip">🏷️ <%= guild.rolesCount %> رتبة</span>
+      </div>
+    </div>
+    <a href="/" class="btn btn-ghost back-btn">← رجوع</a>
+  </div>
+
+  <%- include('partials/servernav', { botId, guildId: guild.id }) %>
+
+  <!-- تابات -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="overview">📊 نظرة عامة</button>
+    <button class="tab" data-tab="protection">🛡️ الحماية</button>
+    <button class="tab" data-tab="antinuke">☢️ Anti-Nuke</button>
+    <button class="tab" data-tab="welcome">👋 الترحيب</button>
+    <button class="tab" data-tab="leave">🚪 المغادرة</button>
+    <button class="tab" data-tab="autorole">🏷️ الرتبة التلقائية</button>
+    <button class="tab" data-tab="logs">📜 السجلات</button>
+    <button class="tab" data-tab="moderation">🔨 الإشراف</button>
+    <button class="tab" data-tab="tickets">🎫 التذاكر</button>
+    <button class="tab" data-tab="custom">⚡ أوامر مخصصة</button>
+    <button class="tab" data-tab="xptab">⭐ XP والمستويات</button>
+    <button class="tab" data-tab="autopost">📢 رسائل مجدولة</button>
+    <button class="tab" data-tab="suggestions">💡 الاقتراحات</button>
+    <button class="tab" data-tab="menuroles">🎭 قوائم الرتب</button>
+    <button class="tab" data-tab="voicestay">🔊 قعود صوتي</button>
+    <button class="tab" data-tab="ai">🤖 الرد التلقائي</button>
+    <button class="tab" data-tab="streaks">🔥 الستريك</button>
+    <button class="tab" data-tab="music">🎵 الميوزك</button>
+  </div>
+
+  <!-- ===== نظرة عامة ===== -->
+  <section id="tab-overview" class="tabpanel active">
+    <div class="stat-grid">
+      <div class="stat-card"><span class="stat-num"><%= guild.memberCount %></span><span>عضو</span></div>
+      <div class="stat-card"><span class="stat-num" id="stat-msgs-today"><%= settings.stats.msgsToday %></span><span>رسالة النهاردة</span></div>
+      <div class="stat-card"><span class="stat-num" id="stat-joins-today"><%= settings.stats.joinsToday %></span><span>عضو جديد النهاردة</span></div>
+      <div class="stat-card"><span class="stat-num"><%= settings.customCommands.length %></span><span>أمر مخصص</span></div>
+    </div>
+
+    <div class="card">
+      <h3>📈 النشاط — آخر 30 يوم</h3>
+      <canvas id="stats-chart" height="120"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+      <script>window.STATS_HISTORY = <%- JSON.stringify(settings.stats.history || []).replace(/</g, '\\u003c') %>; window.TODAY_MSGS = <%= settings.stats.msgsToday %>; window.TODAY_JOINS = <%= settings.stats.joinsToday %>;</script>
+    </div>
+
+    <% if (authUser.role !== 'mod') { %>
+    <!-- استيراد/تصدير -->
+    <div class="card">
+      <h3>📦 نسخ / لصق الإعدادات</h3>
+      <p class="hint">صدّر إعدادات السيرفر ده كملف، وارفعها على أي سيرفر تاني بنفس البوت أو بوت مختلف — كل التابات هتنقل.</p>
+      <a class="btn btn-outline" href="/api/server/<%= botId %>/<%= guild.id %>/settings/export">⬇️ تصدير الإعدادات</a>
+      <label class="mt16">رفع ملف إعدادات</label>
+      <input type="file" id="import-settings" accept=".json">
+    </div>
+    <% } %>
+
+    <form class="card api" data-section="general">
+      <h3>⚙️ إعدادات عامة</h3>
+      <label>البريفيكس (بادئة الأوامر)</label>
+      <input type="text" name="prefix" value="<%= settings.prefix %>" maxlength="6">
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+    <form class="card api" data-section="whitelist">
+      <h3>✅ القائمة البيضاء (مستثنى من الحماية)</h3>
+      <label>آي دي قنوات مستثناة (افصل بينهم بمسافة أو فاصلة)</label>
+      <input type="text" name="whitelistChannels" value="<%= settings.whitelistChannels.join(', ') %>">
+      <label>آي دي رتب مستثناة</label>
+      <input type="text" name="whitelistRoles" value="<%= settings.whitelistRoles.join(', ') %>">
+      <p class="hint">المدراء (Administrators) مستثنين تلقائياً من كل الحمايات.</p>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== Anti-Nuke ===== -->
+  <section id="tab-antinuke" class="tabpanel">
+    <form class="card" id="antinuke-form">
+      <h3>☢️ الحماية من النيوك</h3>
+      <p class="hint">لو حد حذف قنوات/رتب أو عمل حظر جماعي في وقت قصير — البوت يعاقبه فوراً ويبلغك. مالك السيرفر والبوت مستثنيين دايماً.</p>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" id="an-enabled" <%= settings.antiNuke.enabled ? 'checked' : '' %>></div>
+      <label>العقوبة</label>
+      <select name="punish">
+        <option value="removeroles" <%= settings.antiNuke.punish==='removeroles'?'selected':'' %>>شيل كل رتبه</option>
+        <option value="kick" <%= settings.antiNuke.punish==='kick'?'selected':'' %>>طرد</option>
+        <option value="ban" <%= settings.antiNuke.punish==='ban'?'selected':'' %>>حظر</option>
+      </select>
+      <div class="row2 mt16">
+        <div><label>حد حذف القنوات</label><input type="number" name="maxChannelDeletes" min="1" max="50" value="<%= settings.antiNuke.maxChannelDeletes %>"></div>
+        <div><label>حد حذف الرتب</label><input type="number" name="maxRoleDeletes" min="1" max="50" value="<%= settings.antiNuke.maxRoleDeletes %>"></div>
+      </div>
+      <div class="row2">
+        <div><label>حد الحظر الجماعي</label><input type="number" name="maxBans" min="1" max="50" value="<%= settings.antiNuke.maxBans %>"></div>
+        <div><label>حد الطرد الجماعي</label><input type="number" name="maxKicks" min="1" max="50" value="<%= settings.antiNuke.maxKicks %>"></div>
+      </div>
+      <label>روم التنبيهات</label>
+      <select name="alertChannelId">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.antiNuke.alertChannelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <label>آي دي مستثنين (إضافة على المالك)</label>
+      <input type="text" name="whitelistIds" value="<%= (settings.antiNuke.whitelistIds||[]).join(', ') %>">
+      <button class="btn btn-primary mt16">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== Lockdown (جوه الإشراف) ===== -->
+
+  <!-- ===== الحماية ===== -->
+  <section id="tab-protection" class="tabpanel">
+    <% const actions = ['delete','timeout','kick','ban']; const actionNames = {delete:'مسح الرسالة',timeout:'مسح + إسكات 10 دقايق',kick:'مسح + طرد',ban:'مسح + حظر'}; %>
+
+    <form class="card api toggleable" data-section="protection" data-feature="antiLinks">
+      <h3>🔗 منع اللينكات</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.antiLinks.enabled ? 'checked' : '' %>></div>
+      <label>العقوبة</label>
+      <select name="action">
+        <% for (const a of actions) { %><option value="<%= a %>" <%= settings.protection.antiLinks.action===a?'selected':'' %>><%= actionNames[a] %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <form class="card api toggleable" data-section="protection" data-feature="antiInvites">
+      <h3>📨 منع دعوات ديسكورد</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.antiInvites.enabled ? 'checked' : '' %>></div>
+      <label>العقوبة</label>
+      <select name="action">
+        <% for (const a of actions) { %><option value="<%= a %>" <%= settings.protection.antiInvites.action===a?'selected':'' %>><%= actionNames[a] %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <form class="card api toggleable" data-section="protection" data-feature="badWords">
+      <h3>🤬 منع الكلمات السيئة</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.badWords.enabled ? 'checked' : '' %>></div>
+      <label>الكلمات الممنوعة (كل كلمة في سطر)</label>
+      <textarea name="words" rows="4"><%= settings.protection.badWords.words.join('\n') %></textarea>
+      <label>العقوبة</label>
+      <select name="action">
+        <% for (const a of actions) { %><option value="<%= a %>" <%= settings.protection.badWords.action===a?'selected':'' %>><%= actionNames[a] %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <form class="card api toggleable" data-section="protection" data-feature="antiSpam">
+      <h3>⚡ مضاد السبام</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.antiSpam.enabled ? 'checked' : '' %>></div>
+      <div class="row2">
+        <div><label>عدد الرسائل</label><input type="number" name="maxMessages" min="2" max="30" value="<%= settings.protection.antiSpam.maxMessages %>"></div>
+        <div><label>خلال كم ثانية؟</label><input type="number" name="perSeconds" min="1" max="120" value="<%= settings.protection.antiSpam.perSeconds %>"></div>
+      </div>
+      <label>العقوبة</label>
+      <select name="action">
+        <% for (const a of actions) { %><option value="<%= a %>" <%= settings.protection.antiSpam.action===a?'selected':'' %>><%= actionNames[a] %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <form class="card api toggleable" data-section="protection" data-feature="antiMention">
+      <h3>@️ مضاد سبام المنشن</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.antiMention.enabled ? 'checked' : '' %>></div>
+      <label>أقصى عدد منشنات في رسالة واحدة</label>
+      <input type="number" name="maxMentions" min="1" max="50" value="<%= settings.protection.antiMention.maxMentions %>">
+      <label>العقوبة</label>
+      <select name="action">
+        <% for (const a of actions) { %><option value="<%= a %>" <%= settings.protection.antiMention.action===a?'selected':'' %>><%= actionNames[a] %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <form class="card api toggleable" data-section="protection" data-feature="antiRaid">
+      <h3>🚨 الحماية من الرايد</h3>
+      <p class="hint">لو عدد معين من الأعضاء انضموا بسرعة، البوت يتخذ إجراء تلقائي ضد الانضمامات الجديدة.</p>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tgl" <%= settings.protection.antiRaid.enabled ? 'checked' : '' %>></div>
+      <div class="row2">
+        <div><label>عدد انضمامات</label><input type="number" name="maxJoins" min="2" max="100" value="<%= settings.protection.antiRaid.maxJoins %>"></div>
+        <div><label>خلال كم دقيقة؟</label><input type="number" name="perMinutes" min="1" max="60" value="<%= settings.protection.antiRaid.perMinutes %>"></div>
+      </div>
+      <label>العقوبة على الجدد وقت الريد</label>
+      <select name="action">
+        <option value="kick" <%= settings.protection.antiRaid.action==='kick'?'selected':'' %>>طرد</option>
+        <option value="ban" <%= settings.protection.antiRaid.action==='ban'?'selected':'' %>>حظر</option>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== الترحيب ===== -->
+  <section id="tab-welcome" class="tabpanel">
+    <form class="card api" data-section="welcome">
+      <h3>👋 رسائل الترحيب</h3>
+      <div class="switch-row"><span>تشغيل الترحيب</span><input type="checkbox" name="enabled" class="tglsave" <%= settings.welcome.enabled ? 'checked' : '' %>></div>
+      <label>روم الترحيب</label>
+      <select name="channelId">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.welcome.channelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <label>نص الرسالة (Embed)</label>
+      <textarea name="message" rows="4"><%= settings.welcome.message %></textarea>
+      <div class="switch-row"><span>إرسالها بشكل Embed جميل</span><input type="checkbox" name="embed" class="tglsave" <%= settings.welcome.embed ? 'checked' : '' %>></div>
+      <div class="divider"></div>
+      <div class="switch-row"><span>رسالة خاصة (DM) للعضو الجديد</span><input type="checkbox" name="dmEnabled" class="tglsave" <%= settings.welcome.dmEnabled ? 'checked' : '' %>></div>
+      <label>نص رسالة الخاصة</label>
+      <textarea name="dmMessage" rows="2"><%= settings.welcome.dmMessage %></textarea>
+      <p class="hint">متاح: <code>{user}</code> منشن العضو · <code>{username}</code> اسمه · <code>{server}</code> اسم السيرفر · <code>{memberCount}</code> عدد الأعضاء</p>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <!-- صورة الترحيب -->
+    <form class="card" id="wi-form">
+      <h3>🖼️ صورة ترحيب (Canvas)</h3>
+      <p class="hint">صورة جميلة بتتبعت مع رسالة الترحيب: أفاتار العضو على خلفية بألوان انت بتختارها.</p>
+      <div class="switch-row"><span>تشغيل الصورة</span><input type="checkbox" name="enabled" id="wi-enabled" <%= settings.welcomeImage.enabled ? 'checked' : '' %>></div>
+      <div class="row2">
+        <div><label>لون الخلفية 1</label><input type="color" id="wi-c1" value="<%= settings.welcomeImage.bgColor1 %>"></div>
+        <div><label>لون الخلفية 2</label><input type="color" id="wi-c2" value="<%= settings.welcomeImage.bgColor2 %>"></div>
+      </div>
+      <label>لون النص</label><input type="color" id="wi-text" value="<%= settings.welcomeImage.textColor %>">
+      <div class="row2 mt16">
+        <button type="submit" class="btn btn-primary btn-block">💾 حفظ</button>
+        <button type="button" class="btn btn-outline btn-block" id="wi-test">🖼️ تجربة (يبعت في روم الترحيب)</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== المغادرة ===== -->
+  <section id="tab-leave" class="tabpanel">
+    <form class="card api" data-section="leave">
+      <h3>🚪 رسائل المغادرة</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tglsave" <%= settings.leave.enabled ? 'checked' : '' %>></div>
+      <label>الروم</label>
+      <select name="channelId">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.leave.channelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <label>الرسالة</label>
+      <textarea name="message" rows="3"><%= settings.leave.message %></textarea>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== الرتبة التلقائية ===== -->
+  <section id="tab-autorole" class="tabpanel">
+    <form class="card api" data-section="autorole">
+      <h3>🏷️ رتبة تلقائية للعضو الجديد</h3>
+      <div class="switch-row"><span>تشغيل</span><input type="checkbox" name="enabled" class="tglsave" <%= settings.autoRole.enabled ? 'checked' : '' %>></div>
+      <label>الرتبة</label>
+      <select name="roleId">
+        <option value="">— اختار الرتبة —</option>
+        <% for (const r of roles) { %><option value="<%= r.id %>" <%= settings.autoRole.roleId===r.id?'selected':'' %>>@<%= r.name %></option><% } %>
+      </select>
+      <p class="hint">لازم تكون رتبة البوت فوق الرتبة اللي بتتدى.</p>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== السجلات ===== -->
+  <section id="tab-logs" class="tabpanel">
+    <form class="card api" data-section="logs">
+      <h3>📜 سجلات السيرفر</h3>
+      <div class="switch-row"><span>تشغيل السجلات</span><input type="checkbox" name="enabled" class="tglsave" <%= settings.logs.enabled ? 'checked' : '' %>></div>
+      <label>روم السجلات</label>
+      <select name="channelId">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.logs.channelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <div class="grid-checks">
+        <% const evs = { messageDelete:'🗑️ حذف رسالة', messageEdit:'✏️ تعديل رسالة', memberBan:'🔨 حظر/فك حظر', memberKick:'👢 طرد', roleChanges:'🏷️ إنشاء/حذف رتبة', channelChanges:'📁 إنشاء/حذف قناة', nickname:'📛 تغيير اللقب', joins:'📥 دخول أعضاء', leaves:'📤 خروج أعضاء' }; %>
+        <% for (const [key, label] of Object.entries(evs)) { %>
+          <label class="check-pill"><input type="checkbox" name="events.<%= key %>" class="evchk" data-ev="<%= key %>" <%= settings.logs.events[key] ? 'checked' : '' %>> <%= label %></label>
+        <% } %>
+      </div>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== الإشراف ===== -->
+  <section id="tab-moderation" class="tabpanel">
+    <div class="card">
+      <h3>⚡ أوامر مباشرة</h3>
+      <p class="hint">اكتب آي دي العضو ونفذ عليه الأمر فوراً من اللوحة — أو استخدم صفحة <a href="/server/<%= botId %>/<%= guild.id %>/members">👥 الأعضاء</a> عشان تدوس على العضو مباشرة.</p>
+      <div class="action-box">
+        <input type="text" id="act-user" placeholder="آي دي العضو (User ID)" dir="ltr">
+        <select id="act-type">
+          <option value="timeout">🔇 إسكات</option>
+          <option value="untimeout">🔊 فك الإسكات</option>
+          <option value="kick">👢 طرد</option>
+          <option value="ban">🔨 حظر</option>
+          <option value="unban">🔓 فك حظر</option>
+          <option value="warn">⚠️ تحذير</option>
+        </select>
+        <input type="number" id="act-minutes" placeholder="دقايق (للإسكات)" min="1" max="40320" style="display:none">
+        <input type="text" id="act-reason" placeholder="السبب">
+        <button class="btn btn-danger" id="do-action">تنفيذ</button>
+      </div>
+    </div>
+
+    <div class="card lockdown-card <%= settings.lockedDown ? 'locked' : '' %>">
+      <h3>🚨 قفل السيرفر (Lockdown)</h3>
+      <p class="hint">يقفل إرسال الرسائل في كل الرومات نصياً مرة واحدة — للطوارئ زي وقت الريد.</p>
+      <% if (settings.lockedDown) { %>
+        <button class="btn btn-success btn-block" id="lockdown-btn" data-lock="false">🔓 فك القفل عن السيرفر</button>
+      <% } else { %>
+        <button class="btn btn-danger btn-block" id="lockdown-btn" data-lock="true">🔒 قفل كل السيرفر الآن</button>
+      <% } %>
+    </div>
+
+    <form class="card api" data-section="moderation">
+      <h3>📋 روم سجل الإشراف</h3>
+      <label>الروم (سجل البان/كيك/التحذيرات اللي من اللوحة والسلاش)</label>
+      <select name="modLogChannelId">
+        <option value="">— بدون —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.moderation.modLogChannelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+
+    <div class="card">
+      <h3>⚠️ التحذيرات (<%= warningsList.length %>)</h3>
+      <% if (!warningsList.length) { %><p class="muted">مفيش تحذيرات لحد الآن 🎉</p><% } %>
+      <table class="table">
+        <% warningsList.slice(0, 50).forEach((w) => { %>
+          <tr>
+            <td><code><%= w.userId %></code></td>
+            <td><%= w.reason %></td>
+            <td class="muted"><%= w.by %></td>
+            <td class="muted"><%= new Date(w.at).toLocaleString('ar-EG') %></td>
+            <td><button class="btn btn-sm btn-ghost warn-clear" data-user="<%= w.userId %>">🗑️</button></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== التذاكر ===== -->
+  <section id="tab-tickets" class="tabpanel">
+    <form class="card api" data-section="tickets">
+      <h3>🎫 نظام التذاكر</h3>
+      <div class="switch-row"><span>تشغيل النظام</span><input type="checkbox" name="enabled" class="tglsave" <%= settings.tickets.enabled ? 'checked' : '' %>></div>
+      <label>كاتيجوري التذاكر (هتتفتح تحتيه)</label>
+      <select name="categoryId">
+        <option value="">— بدون —</option>
+        <% for (const c of categories) { %><option value="<%= c.id %>" <%= settings.tickets.categoryId===c.id?'selected':'' %>>📁 <%= c.name %></option><% } %>
+      </select>
+      <label>رتبة الدعم (تشوف كل التذاكر)</label>
+      <select name="supportRoleId">
+        <option value="">— بدون —</option>
+        <% for (const r of roles) { %><option value="<%= r.id %>" <%= settings.tickets.supportRoleId===r.id?'selected':'' %>>@<%= r.name %></option><% } %>
+      </select>
+      <label>روم نشر لوحة التذاكر فيها</label>
+      <select name="panelChannelId">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.tickets.panelChannelId===c.id?'selected':''.trim() %>>#<%= c.name %></option><% } %>
+      </select>
+      <label>رسالة الترحيب داخل التذكرة</label>
+      <textarea name="welcomeMessage" rows="2"><%= settings.tickets.welcomeMessage %></textarea>
+      <button class="btn btn-primary">💾 حفظ</button>
+    </form>
+    <div class="card">
+      <h3>📣 نشر لوحة التذاكر</h3>
+      <p class="hint">احفظ الإعدادات الأول (ومنهم روم اللوحة)، وبعدين اضغط هنا عشان تتبعت لوحة فيها زرار "فتح تذكرة".</p>
+      <p class="muted">تم فتح <strong><%= settings.tickets.opened %></strong> تذكرة لحد الآن.</p>
+      <button class="btn btn-success" id="post-panel">📮 نشر اللوحة الآن</button>
+    </div>
+  </section>
+
+  <!-- ===== الأوامر المخصصة ===== -->
+  <section id="tab-custom" class="tabpanel">
+    <form class="card" id="cc-add-form">
+      <h3>➕ إضافة أمر مخصص</h3>
+      <div class="row2">
+        <div><label>اسم الأمر (بدون بريفيكس)</label><input type="text" id="cc-name" placeholder="rules" maxlength="20" required></div>
+        <div><label>رد البوت</label><input type="text" id="cc-response" placeholder="الرد اللي هيقولوه..." maxlength="1500" required></div>
+      </div>
+      <button class="btn btn-success">➕ إضافة</button>
+    </form>
+    <div class="card">
+      <h3>📜 الأوامر المخصصة (<%= settings.customCommands.length %>)</h3>
+      <% if (!settings.customCommands.length) { %><p class="muted">لسه مفيش أوامر مخصصة.</p><% } %>
+      <table class="table">
+        <% for (const cc of settings.customCommands) { %>
+          <tr data-name="<%= cc.name %>">
+            <td><code>!<%= cc.name %></code></td>
+            <td class="cc-resp"><%= cc.response.slice(0, 80) %></td>
+            <td><span class="badge <%= cc.enabled !== false ? 'on' : 'off' %>"><%= cc.enabled !== false ? 'شغال' : 'موقوف' %></span></td>
+            <td>
+              <button class="btn btn-sm btn-outline cc-toggle">⏯️</button>
+              <button class="btn btn-sm btn-danger cc-del">🗑️</button>
+            </td>
+          </tr>
+        <% } %>
+      </table>
+      <p class="hint">الأمر بيشتغل بالبريفيكس في الشات: <code><%= settings.prefix %>&lt;name&gt;</code></p>
+    </div>
+  </section>
+
+  <!-- ===== XP والمستويات ===== -->
+  <section id="tab-xptab" class="tabpanel">
+    <form class="card" id="xp-form">
+      <h3>⭐ نظام الخبرة</h3>
+      <div class="switch-row"><span>تشغيل النظام</span><input type="checkbox" name="enabled" id="xp-enabled" <%= settings.xp.enabled ? 'checked' : '' %>></div>
+      <div class="row2">
+        <div><label>XP لكل رسالة (1-100)</label><input type="number" id="xp-per" min="1" max="100" value="<%= settings.xp.xpPerMessage %>"></div>
+        <div><label>كول داون بالثواني (5-600)</label><input type="number" id="xp-cooldown" min="5" max="600" value="<%= settings.xp.cooldownSeconds %>"></div>
+      </div>
+      <label>روم إعلان الترقية</label>
+      <select id="xp-announce">
+        <option value="">— بدون —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.xp.announceChannelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <label>رسالة الترقية — متاح <code>{level}</code> و <code>{user}</code></label>
+      <input type="text" id="xp-message" maxlength="300" value="<%= settings.xp.levelUpMessage %>">
+      <button type="submit" class="btn btn-primary mt16">💾 حفظ</button>
+    </form>
+
+    <div class="card">
+      <h3>🏆 لوحة الصدارة</h3>
+      <button class="btn btn-outline mb24" id="lb-refresh">🔄 تحديث</button>
+      <table class="table"><tbody id="leaderboard"><tr><td class="muted">اضغط تحديث...</td></tr></tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== رسائل مجدولة ===== -->
+  <section id="tab-autopost" class="tabpanel">
+    <form class="card" id="ap-form">
+      <h3>➕ رسالة مجدولة جديدة</h3>
+      <div class="row2">
+        <div>
+          <label>الروم</label>
+          <select id="ap-channel" required>
+            <% for (const c of textChannels) { %><option value="<%= c.id %>">#<%= c.name %></option><% } %>
+          </select>
+        </div>
+        <div>
+          <label>التكرار: كل كم ساعة؟ (0 = معطل)</label>
+          <input type="number" id="ap-hours" min="0" max="720" value="0">
+        </div>
+      </div>
+      <label>أو وقت يومي ثابت (HH:MM بتوقيت السيرفر)</label>
+      <input type="text" id="ap-daily" dir="ltr" placeholder="08:00">
+      <label>المحتوى</label>
+      <textarea id="ap-content" rows="3" maxlength="1500" placeholder="الرسالة اللي هتتنشر..."></textarea>
+      <button type="submit" class="btn btn-success mt16 btn-block">➕ إضافة</button>
+    </form>
+
+    <div class="card">
+      <h3>📜 الرسائل المجدولة (<%= settings.autoPoster.length %>)</h3>
+      <table class="table"><tbody id="ap-list">
+        <% for (const ap of settings.autoPoster) { %>
+          <tr data-id="<%= ap.id %>">
+            <td>#<%= textChannels.find(c => c.id === ap.channelId)?.name || ap.channelId %></td>
+            <td class="muted"><%= ap.everyHours > 0 ? ('كل ' + ap.everyHours + ' ساعة') : ('يومياً ' + ap.dailyTime) %></td>
+            <td><%= String(ap.content).slice(0, 40) %></td>
+            <td>
+              <button class="btn btn-sm btn-outline ap-now" data-id="<%= ap.id %>">📤 ابعتها دلوقتي</button>
+              <button class="btn btn-sm btn-danger ap-del" data-id="<%= ap.id %>">🗑️</button>
+            </td>
+          </tr>
+        <% } %>
+      </tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== الاقتراحات ===== -->
+  <section id="tab-suggestions" class="tabpanel">
+    <form class="card" id="sg-form">
+      <h3>💡 نظام الاقتراحات</h3>
+      <p class="hint">الأعضاء يكتبوا <code>/suggest نص الاقتراح</code> → ينزل في الروم بصوت 👍👎 والعدّاد بيتحدث لايف. المشرف يرد ✅ يقبله أو ❌ يرفضه.</p>
+      <div class="switch-row"><span>تشغيل النظام</span><input type="checkbox" name="enabled" id="sg-enabled" <%= settings.suggestions.enabled ? 'checked' : '' %>></div>
+      <label>روم الاقتراحات</label>
+      <select name="channelId" id="sg-channel">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>" <%= settings.suggestions.channelId===c.id?'selected':'' %>>#<%= c.name %></option><% } %>
+      </select>
+      <button type="submit" class="btn btn-primary mt16">💾 حفظ</button>
+    </form>
+  </section>
+
+  <!-- ===== قوائم الرتب ===== -->
+  <section id="tab-menuroles" class="tabpanel">
+    <form class="card" id="mr-form">
+      <h3>🎭 قائمة رتب جديدة</h3>
+      <p class="hint">عضو يختار من القايمة ياخد الرتبة، ويختار تاني يشيلها. اختيار رتبة بيشيل اللي قبلها.</p>
+      <label>عنوان القائمة</label>
+      <input type="text" id="mr-title" maxlength="200" value="🎭 اختار رتبتك">
+      <label>الروم</label>
+      <select id="mr-channel" required>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>">#<%= c.name %></option><% } %>
+      </select>
+
+      <div id="mr-roles-list" class="mt16"></div>
+      <button type="button" class="btn btn-outline" id="mr-add-role">➕ ضيف رتبة للقائمة</button>
+
+      <button type="submit" class="btn btn-success mt16 btn-block">💾 حفظ القائمة</button>
+    </form>
+
+    <div class="card">
+      <h3>📜 القوائم المحفوظة (<%= settings.menuRoles.panels.length %>)</h3>
+      <table class="table"><tbody id="mr-saved">
+        <% for (const p of settings.menuRoles.panels) { %>
+          <tr data-id="<%= p.id %>">
+            <td><strong><%= p.title %></strong> <small class="muted">(<%= p.roles.length %> رتبة)</small></td>
+            <td>
+              <button class="btn btn-sm btn-primary mr-post" data-id="<%= p.id %>">📮 نشر</button>
+              <button class="btn btn-sm btn-danger mr-del" data-id="<%= p.id %>">🗑️</button>
+            </td>
+          </tr>
+        <% } %>
+      </tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== قعود صوتي ===== -->
+  <section id="tab-voicestay" class="tabpanel">
+    <form class="card" id="vs-form">
+      <h3>🔊 قعود دائم في روم صوتية</h3>
+      <p class="hint">البوت يقعد في الروم اللي تختارها 24/7 — ولو حد طرد منه أو انقطع، يرجع يدخل تلقائيًا خلال <strong>نص ثانية</strong> ⚡</p>
+      <div class="switch-row"><span>تشغيل القعود الدائم</span><input type="checkbox" name="enabled" id="vs-enabled" <%= settings.voiceStay?.enabled ? 'checked' : '' %>></div>
+      <label>الروم الصوتية</label>
+      <select name="channelId" id="vs-channel">
+        <option value="">— اختار الروم —</option>
+        <% for (const c of voiceChannels) { %><option value="<%= c.id %>" <%= settings.voiceStay?.channelId===c.id?'selected':'' %>>🔊 <%= c.name %></option><% } %>
+      </select>
+      <button type="submit" class="btn btn-primary btn-block mt16">💾 حفظ وتطبيق فورًا</button>
+    </form>
+    <div class="card">
+      <h3>📡 الحالة الحالية</h3>
+      <table class="table"><tbody id="vs-status"><tr><td class="muted">جاري الفحص...</td></tr></tbody></table>
+      <p class="hint">الحالة بتتحدث كل 5 ثواني طول ما التاب مفتوح.</p>
+    </div>
+  </section>
+
+  <!-- ===== الرد التلقائي (AI) ===== -->
+  <section id="tab-ai" class="tabpanel">
+    <form class="card" id="ai-form">
+      <h3>🤖 الرد التلقائي على الرسائل</h3>
+      <p class="hint">فعّل التبديل بس → البوت يرد على <strong>أي رسالة</strong> تتكتب في <strong>أي قناة</strong> بالسيرفر. وإذا سألوه <strong>«مين اللي برمجك؟»</strong> يرد: <strong>«بيبو عمك 😂»</strong></p>
+      <div class="switch-row"><span>تفعيل الرد التلقائي</span><input type="checkbox" id="ai-enabled" <%= settings.ai?.enabled ? 'checked' : '' %>></div>
+      <label>قناة محددة بس (اختياري — سيبه فاضي يرد في الكل)</label>
+      <input type="text" id="ai-channel" value="<%= settings.ai?.channelId || '' %>" placeholder="دوس يمين على الشات → نسخ معرف القناة" dir="ltr">
+      <p class="hint">لو حطيت هنا رقم القناة، البوت هيرد في القناة دي بس. لو سيبته فاضي، هيرد في كل قنوات السيرفر.</p>
+      <button type="submit" class="btn btn-primary btn-block mt16">💾 حفظ وتطبيق فورًا</button>
+      <p class="hint" id="ai-key-state"><%= config?.geminiApiKey ? '✨ مفتاح Gemini متصل — ردود ذكية كاملة' : '⚠️ بدون مفتاح Gemini — هيشتغل بالردود المفتاحية (بيبو عمك والأسئلة الأساسية) فقط' %></p>
+    </form>
+    <div class="card">
+      <h3>📡 الحالة الحالية</h3>
+      <table class="table"><tbody id="ai-status"><tr><td class="muted">جاري الفحص...</td></tr></tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== نظام الستريك (Streaks) للبنات ===== -->
+  <section id="tab-streaks" class="tabpanel">
+    <form class="card" id="st-form">
+      <h3>🔥 الستريك — تحدٍّ يومي للبنات</h3>
+      <p class="hint">فعّل التبديل بس → أي بنت تنزل صورة في قناة الفروم المحددة، <strong>كل البوتات</strong> تعمل <strong>❤️🔥</strong> على الصورة، والبوت اللي تختاره من هنا يرسل <strong>منشن الستريك</strong> فيه العداد والدروع.</p>
+      <div class="switch-row"><span>تفعيل نظام الستريك</span><input type="checkbox" id="st-enabled" <%= settings.streaks?.enabled ? 'checked' : '' %>></div>
+      <label>🤖 البوت اللي يرسل رسالة الستريك (الباقي لايكات بس)</label>
+      <select id="st-sender">
+        <% for (const b of botsInGuild || []) { %>
+          <option value="<%= b.id %>" <%= String(settings.streaks?.senderBotId || '') === String(b.id) ? 'selected' : '' %>><%= b.tag %></option>
+        <% } %>
+      </select>
+      <label>🖼️ قناة الفروم اللي بتنزل فيها الصور</label>
+      <input type="text" id="st-forum" value="<%= settings.streaks?.forumChannelId || '' %>" placeholder="دوس يمين على قناة الفروم → نسخ معرف القناة" dir="ltr">
+      <label>📣 قناة إعلانات الستريك (اختياري — سيبه فاضي يبعت في نفس قناة الصورة)</label>
+      <input type="text" id="st-announce" value="<%= settings.streaks?.announceChannelId || '' %>" placeholder="دوس يمين على الشات → نسخ معرف القناة" dir="ltr">
+      <button type="submit" class="btn btn-primary btn-block mt16">💾 حفظ وتطبيق فورًا</button>
+    </form>
+    <div class="card">
+      <h3>🏆 ترتيب الستريك</h3>
+      <table class="table"><tbody id="st-leaderboard"><tr><td class="muted">جاري التحميل...</td></tr></tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== الميوزك ===== -->
+  <section id="tab-music" class="tabpanel">
+    <form class="card" id="mu-form">
+      <h3>🎵 شغّل أغنية</h3>
+      <label>اسم الأغنية أو رابط (YouTube)</label>
+      <div class="action-box" style="grid-template-columns:1fr auto">
+        <input type="text" id="mu-query" placeholder="زي: Amr Diab Nour El Ein أو الصق رابط" dir="auto">
+        <button type="submit" class="btn btn-success">▶️ شغّل</button>
+      </div>
+      <p class="hint">البوت هيتصل بروم القعود الصوتية لو مفعّلة، أو أي روم هو قاعد فيها بالفعل.</p>
+    </form>
+
+    <!-- مشغل -->
+    <div class="card music-card">
+      <h3>🎛️ التحكم</h3>
+      <div class="np-row" id="mu-np">
+        <span class="eq" id="mu-eq"><i></i><i></i><i></i><i></i></span>
+        <div class="np-info">
+          <strong id="mu-now-name" class="np-name">مفيش حاجة شغالة</strong>
+          <small id="mu-now-meta" class="muted">— شغّل أغنية من فوق</small>
+        </div>
+        <img id="mu-now-thumb" class="np-thumb hidden" alt="">
+      </div>
+      <div class="mu-controls mt16">
+        <button class="btn mu-btn" id="mu-pause">⏸️ إيقاف مؤقت</button>
+        <button class="btn mu-btn" id="mu-resume">▶️ كمّل</button>
+        <button class="btn mu-btn" id="mu-skip">⏭️ اللي بعدها</button>
+        <button class="btn mu-btn mu-stop" id="mu-stop">⏹️ وقف الكل</button>
+      </div>
+      <div class="vol-row mt16">
+        <span>🔈</span>
+        <input type="range" id="mu-vol" min="0" max="150" value="80">
+        <strong id="mu-vol-num">80%</strong>
+        <button class="btn btn-sm btn-outline" id="mu-vol-set">تطبيق</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📜 قائمة الانتظار (<span id="mu-count">0</span>)</h3>
+      <table class="table"><tbody id="mu-queue"><tr><td class="muted">القائمة فاضية</td></tr></tbody></table>
+      <p class="hint">بتتحدث تلقائيًا كل 3 ثواني 🔄</p>
+    </div>
+  </section>
+</main>
+
+<div id="toast-wrap"></div>
+<script>GUILD_ID = "<%= guild.id %>"; BOT_ID = "<%= botId %>"; BOT_TAG = "<%= botTag %>";</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

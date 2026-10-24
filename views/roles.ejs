@@ -1,0 +1,47 @@
+<%- include('partials/head', { title: 'الرتب — ' + guild.name }) %>
+<%- include('partials/nav') %>
+<main class="container server-page" data-bot="<%= botId %>" data-guild="<%= guild.id %>">
+  <div class="server-header">
+    <% if (guild.icon) { %><img src="<%= guild.icon %>" class="server-icon"><% } else { %><div class="server-icon fallback"><%= guild.name.charAt(0) %></div><% } %>
+    <div class="server-meta">
+      <h1>🏷️ الرتب</h1>
+      <div class="chips"><span class="chip">🏷️ <%= guild.rolesCount %> رتبة</span></div>
+    </div>
+    <%- include('partials/servernav', { botId, guildId: guild.id }) %>
+  </div>
+
+  <div class="row2">
+    <form class="card" id="role-create-form">
+      <h3>➕ إنشاء رتبة</h3>
+      <label>اسم الرتبة</label><input type="text" id="rc-name" maxlength="100" required>
+      <label>اللون</label><input type="color" id="rc-color" value="#8b5cf6">
+      <label>صلاحيات (اختياري)</label>
+      <div class="grid-checks" id="rc-perms"></div>
+      <button class="btn btn-success mt16 btn-block">➕ إنشاء</button>
+    </form>
+
+    <form class="card" id="role-edit-form">
+      <h3>✏️ تعديل رتبة</h3>
+      <label>اختار الرتبة (من القائمة تحت هتتعبّي تلقائياً)</label>
+      <input type="text" id="re-id" readonly placeholder="اضغط ✏️ جنب أي رتبة تحت" dir="ltr">
+      <label>اسم جديد (اتسيبه فاضي = بدون تغيير)</label><input type="text" id="re-name" maxlength="100">
+      <label>لون جديد</label><input type="color" id="re-color">
+      <div class="grid-checks" id="re-perms"></div>
+      <button class="btn btn-primary mt16 btn-block">💾 حفظ التعديل</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>📜 كل الرتب (<span id="roles-total">0</span>)</h3>
+    <table class="table" id="roles-table">
+      <thead><tr><th>الرتبة</th><th>الأعضاء</th><th>إجراءات</th></tr></thead>
+      <tbody id="roles-body"></tbody>
+    </table>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>GUILD_ID = "<%= guild.id %>"; BOT_ID = "<%= botId %>"; BOT_TAG = "<%= botTag %>"; PAGE_TYPE = "roles";</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

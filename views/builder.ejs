@@ -1,0 +1,90 @@
+<%- include('partials/head', { title: 'Embed Builder — ' + guild.name }) %>
+<%- include('partials/nav') %>
+<main class="container server-page" data-bot="<%= botId %>" data-guild="<%= guild.id %>">
+  <div class="server-header">
+    <% if (guild.icon) { %><img src="<%= guild.icon %>" class="server-icon"><% } else { %><div class="server-icon fallback"><%= guild.name.charAt(0) %></div><% } %>
+    <div class="server-meta"><h1>🎨 Embed Builder</h1></div>
+    <%- include('partials/servernav', { botId, guildId: guild.id }) %>
+  </div>
+
+  <div class="builder-grid">
+    <!-- المحرر -->
+    <form class="card" id="embed-form">
+      <label>الروم المستهدف</label>
+      <select id="eb-channel" required>
+        <% for (const c of textChannels) { %><option value="<%= c.id %>">#<%= c.name %></option><% } %>
+      </select>
+      <label>نص فوق الرسالة (اختياري)</label>
+      <input type="text" id="eb-content" maxlength="2000" placeholder="مثلاً منشن رول @everyone">
+
+      <div class="divider"></div>
+      <label>العنوان</label><input type="text" id="eb-title" maxlength="256" oninput="preview()">
+      <label>الوصف</label><textarea id="eb-description" rows="5" maxlength="4000" oninput="preview()"></textarea>
+
+      <div class="row2">
+        <div><label>لون الشريط</label><input type="color" id="eb-color" value="#8b5cf6" oninput="preview()"></div>
+        <div><label>تاريخ الرسالة</label><input type="checkbox" id="eb-timestamp" class="tglsave" onchange="preview()" style="width:22px;height:22px;accent-color:var(--accent)"></div>
+      </div>
+
+      <div class="row2">
+        <div><label>اسم الكاتب</label><input type="text" id="eb-authorName" maxlength="256" oninput="preview()"></div>
+        <div><label>صورة الكاتب (URL)</label><input type="text" id="eb-authorIcon" dir="ltr" placeholder="https://..." oninput="preview()"></div>
+      </div>
+
+      <div class="row2">
+        <div><label>صورة كبيرة (URL)</label><input type="text" id="eb-image" dir="ltr" placeholder="https://..." oninput="preview()"></div>
+        <div><label>صورة مصغرة (URL)</label><input type="text" id="eb-thumbnail" dir="ltr" placeholder="https://..." oninput="preview()"></div>
+      </div>
+
+      <div class="row2">
+        <div><label>نص التذييل</label><input type="text" id="eb-footerText" maxlength="2048" oninput="preview()"></div>
+        <div><label>أيقونة التذييل</label><input type="text" id="eb-footerIcon" dir="ltr" placeholder="https://..." oninput="preview()"></div>
+      </div>
+
+      <p class="hint">أزرار روابط (اختياري — لازم URL صالح):</p>
+      <div class="grid3">
+        <div><label>زر 1</label><input type="text" id="eb-btn1Label" placeholder="النص"></div>
+        <div><label>رابطه</label><input type="text" id="eb-btn1Url" dir="ltr" placeholder="https://..."></div>
+        <div></div>
+        <div><label>زر 2</label><input type="text" id="eb-btn2Label"></div>
+        <div><label>رابطه</label><input type="text" id="eb-btn2Url" dir="ltr"></div>
+        <div></div>
+        <div><label>زر 3</label><input type="text" id="eb-btn3Label"></div>
+        <div><label>رابطه</label><input type="text" id="eb-btn3Url" dir="ltr"></div>
+        <div></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mt16">🚀 إرسال للروم</button>
+    </form>
+
+    <!-- المعاينة -->
+    <div>
+      <h3 class="mb24">👁️ المعاينة المباشرة</h3>
+      <div class="discord-preview">
+        <div class="discord-msg">
+          <div class="discord-avatar">🤖</div>
+          <div>
+            <div class="discord-name"><%= botTag %></div>
+            <div class="discord-content" id="pv-content"></div>
+            <div class="discord-embed" id="pv-embed" style="border-color:#8b5cf6">
+              <div id="pv-author" class="pv-author hidden"></div>
+              <div id="pv-title" class="hidden pv-title"></div>
+              <div id="pv-description" class="hidden pv-desc"></div>
+              <img id="pv-image" class="hidden pv-image">
+              <div class="pv-footer-row">
+                <img id="pv-thumbnail" class="hidden pv-thumb">
+                <div id="pv-footer" class="hidden pv-footer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>GUILD_ID = "<%= guild.id %>"; BOT_ID = "<%= botId %>"; BOT_TAG = "<%= botTag %>"; PAGE_TYPE = "builder";</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

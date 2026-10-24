@@ -1,0 +1,20 @@
+<%- include('partials/head', { title: 'تسجيل الدخول' }) %>
+<main class="login-page">
+  <div class="login-card">
+    <div class="login-logo"><img src="/img/logo.png" alt="Red Bull" class="login-logo-img"></div>
+    <h1>Red Bull</h1>
+    <p class="muted">اكتب اسم المستخدم وكلمة السر عشان تدخل اللوحة</p>
+
+    <% if (err === '1') { %><div class="alert err">❌ اسم المستخدم أو كلمة السر غلط</div><% } %>
+    <% if (err === 'locked') { %><div class="alert err">🔒 محاولات كتير غلط — استنى 10 دقايق</div><% } %>
+
+    <form method="POST" action="/login" class="login-form">
+      <input type="text" name="username" placeholder="اسم المستخدم" required autofocus dir="ltr">
+      <input type="password" name="password" placeholder="كلمة السر" required>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">🔓 دخول</button>
+    </form>
+  </div>
+  <footer class="login-foot">صُنع بـ 💜 — بوت بلوحة تحكم كاملة · يدعم 100 بوت</footer>
+</main>
+</body>
+</html>

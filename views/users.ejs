@@ -1,0 +1,42 @@
+<%- include('partials/head', { title: 'حسابات اللوحة' }) %>
+<%- include('partials/nav') %>
+<main class="container">
+  <h1 class="page-title">👤 حسابات اللوحة</h1>
+  <p class="muted mb24">الصلاحيات: 👑 مالك (كل حاجة) · 🛡️ أدمن (كل الإعدادات) · 🔨 مشرف (الأعضاء والإجراءات بس)</p>
+
+  <form class="card" id="user-add-form">
+    <h3>➕ إضافة حساب</h3>
+    <div class="row2 pass-grid">
+      <div><label>اسم المستخدم (إنجليزي)</label><input type="text" id="ua-username" dir="ltr" required></div>
+      <div><label>كلمة السر</label><input type="password" id="ua-password" required></div>
+      <div>
+        <label>الصلاحية</label>
+        <select id="ua-role">
+          <option value="mod">🔨 مشرف — الأعضاء والإجراءات</option>
+          <option value="admin">🛡️ أدمن — كل إعدادات السيرفرات</option>
+        </select>
+      </div>
+      <div class="align-end"><button type="submit" class="btn btn-success btn-block">➕ إضافة</button></div>
+    </div>
+  </form>
+
+  <div class="card">
+    <h3>📜 الحسابات</h3>
+    <table class="table"><tbody id="users-list"></tbody></table>
+  </div>
+
+  <div class="card">
+    <h3>🔑 تغيير كلمة سري (<%= authUser.username %>)</h3>
+    <div class="row2 pass-grid">
+      <div><label>الحالية</label><input type="password" id="pw-current"></div>
+      <div><label>الجديدة</label><input type="password" id="pw-new1"></div>
+      <div><label>تأكيد الجديدة</label><input type="password" id="pw-new2"></div>
+      <div class="align-end"><button class="btn btn-primary btn-block" id="upw-save">💾 تحديث</button></div>
+    </div>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>PAGE_TYPE = "users"; AUTH_USER = "<%= authUser.username %>";</script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

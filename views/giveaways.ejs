@@ -1,0 +1,52 @@
+<%- include('partials/head', { title: 'السحبات — ' + guild.name }) %>
+<%- include('partials/nav') %>
+<main class="container server-page" data-bot="<%= botId %>" data-guild="<%= guild.id %>">
+  <div class="server-header">
+    <% if (guild.icon) { %><img src="<%= guild.icon %>" class="server-icon"><% } else { %><div class="server-icon fallback"><%= guild.name.charAt(0) %></div><% } %>
+    <div class="server-meta"><h1>🎁 السحبات</h1></div>
+    <%- include('partials/servernav', { botId, guildId: guild.id }) %>
+  </div>
+
+  <form class="card" id="gw-create-form">
+    <h3>➕ سحبة جديدة</h3>
+    <div class="row2">
+      <div><label>الجايزة</label><input type="text" id="gw-prize" maxlength="200" placeholder="مثلاً: نيترو شهر" required></div>
+      <div>
+        <label>الروم</label>
+        <select id="gw-channel" required>
+          <% for (const c of textChannels) { %><option value="<%= c.id %>">#<%= c.name %></option><% } %>
+        </select>
+      </div>
+    </div>
+    <div class="row2">
+      <div><label>مدة السحبة (دقايق)</label><input type="number" id="gw-duration" value="60" min="1" max="43200" required></div>
+      <div><label>عدد الفايزين</label><input type="number" id="gw-winners" value="1" min="1" max="10"></div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block mt16">🎉 ابدأ السحبة</button>
+  </form>
+
+  <div class="card">
+    <h3>📜 سجل السحبات (آخر 50)</h3>
+    <p class="muted">السحبات الشغالة بتظهر هنا وتتحدث تلقائياً — الفايز بيتسحب ويتبلغ في الروم.</p>
+    <table class="table">
+      <tbody id="gw-list"><% for (const gw of settings.giveaways || []) { %>
+        <tr data-id="<%= gw.id %>">
+          <td>🎁 <strong><%= gw.prize %></strong></td>
+          <td><%= gw.ended ? '🏁 انتهت' : '⏳ شغالة — تنتهي <t:' + Math.floor(gw.endsAt/1000) + ':R>' %></td>
+          <td>
+            <% if (gw.ended) { %>
+              <button class="btn btn-sm btn-outline gw-reroll" data-id="<%= gw.id %>">🔁 إعادة سحب</button>
+            <% } %>
+            <button class="btn btn-sm btn-danger gw-del" data-id="<%= gw.id %>">🗑️</button>
+          </td>
+        </tr>
+      <% } %></tbody>
+    </table>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>GUILD_ID = "<%= guild.id %>"; BOT_ID = "<%= botId %>"; BOT_TAG = "<%= botTag %>"; PAGE_TYPE = "giveaways";</script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

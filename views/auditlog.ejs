@@ -1,0 +1,26 @@
+<%- include('partials/head', { title: 'سجل العمليات' }) %>
+<%- include('partials/nav') %>
+<main class="container">
+  <h1 class="page-title">🧾 سجل عمليات اللوحة</h1>
+  <p class="muted mb24">آخر 300 عملية — مين عمل إيه وامتى</p>
+
+  <div class="card">
+    <table class="table">
+      <tbody id="audit-list">
+        <% for (const item of log) { %>
+          <tr>
+            <td><code><%= new Date(item.at).toLocaleString('ar-EG') %></code></td>
+            <td><strong><%= item.user %></strong></td>
+            <td><%= item.action %></td>
+            <td class="muted"><%= item.details %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script>PAGE_TYPE = "auditlog";</script>
+<script src="/js/pages.js"></script>
+</body>
+</html>

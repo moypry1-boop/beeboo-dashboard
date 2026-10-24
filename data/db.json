@@ -1,0 +1,1600 @@
+{
+  "panel": {
+    "salt": "dc98b48e07c0718785e9724647561190",
+    "hash": "131c442e64a19e028ca3826304ba1f7b71835146b128052acd605c176dc0895d838100befb00566794d4810a5db775fdd03b1d106fb2e189da28b01e6a833866",
+    "isDefault": true
+  },
+  "panelUsers": [
+    {
+      "username": "admin",
+      "hash": "dcd66cf87f55f08fa0262c2a7414c3613df2a267ef57cb2da4a377ac3ce62fe75f8a505666f6801ef630677b5a943768d40936e096f96444f5eb9667806c45f3",
+      "salt": "0243a91cd726af5fce778bdf06ee4ea9",
+      "role": "owner",
+      "createdAt": 1787611498751
+    }
+  ],
+  "auditLog": [
+    {
+      "at": 1787611679326,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787611852438,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787611957336,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787613096016,
+      "user": "admin",
+      "action": "إنشاء سحبة",
+      "details": "حبيبي في 𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787613782696,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787613820602,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787613871337,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787614330549,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787614384438,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787614402447,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → dnd (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787614463742,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → dnd (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787614475486,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → dnd (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787614479262,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → dnd (lk;kl;)"
+    },
+    {
+      "at": 1787614889507,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615069906,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615105012,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615382552,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615455180,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615532409,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615671134,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615793077,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787615981790,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → idle (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787615994869,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → invisible (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787616003693,
+      "user": "admin",
+      "action": "✨ تغيير حالة بوت",
+      "details": "The 10 Corn Music#4252 → dnd (🖥️ لوحة التحكم | /help)"
+    },
+    {
+      "at": 1787617014014,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617164922,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617499716,
+      "user": "admin",
+      "action": "تحديث نظام الاقتراحات",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787617587651,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617632330,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617679873,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617688646,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617817757,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787617968123,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787618052938,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787618601288,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787618791688,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787618791700,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡187"
+    },
+    {
+      "at": 1787618803179,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787619144281,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619144292,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡187"
+    },
+    {
+      "at": 1787619157087,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787619241781,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619268047,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619268057,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787619279448,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787619282797,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787619296161,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・⚓・𝐀𝐥 𝐀𝐝𝐚𝐧"
+    },
+    {
+      "at": 1787619654866,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619663631,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787619679348,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・⚓・𝐀𝐥 𝐀𝐝𝐚𝐧"
+    },
+    {
+      "at": 1787619691959,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "https://www.youtube.com/watch?v=hd6dWRZHkGc"
+    },
+    {
+      "at": 1787619711320,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "https://www.youtube.com/watch?v=hd6dWRZHkGc"
+    },
+    {
+      "at": 1787619718707,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619719517,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787619728263,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・⚓・𝐀𝐥 𝐀𝐝𝐚𝐧"
+    },
+    {
+      "at": 1787619728404,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop"
+    },
+    {
+      "at": 1787619737113,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787619962200,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787619962211,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787619990703,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787620062051,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787620079751,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・⚓・𝐀𝐥 𝐀𝐝𝐚𝐧"
+    },
+    {
+      "at": 1787620137219,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787620296544,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787620296919,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787620303943,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787620329326,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787620576024,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787620576032,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787620583756,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787620609145,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787620951331,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787620951341,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787620958444,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787620983864,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787621308825,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787621308837,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787621318951,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787621344584,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787621676843,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787621687752,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787621704656,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787622003884,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787622023752,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787622031500,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787622706327,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787622733966,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787622981245,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787622982320,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787622990169,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787623015226,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787623199879,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787623201283,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787623209360,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787623234421,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787623448013,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787623449436,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787623457364,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop 2024"
+    },
+    {
+      "at": 1787623482420,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787623898816,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624079908,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624081360,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787624089355,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi hip hop"
+    },
+    {
+      "at": 1787624150886,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624197798,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624197806,
+      "user": "admin",
+      "action": "🎵 stop",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787624197813,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787624207598,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624208683,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡186"
+    },
+    {
+      "at": 1787624214889,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "chill lofi beats"
+    },
+    {
+      "at": 1787624225788,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "jazz piano relax"
+    },
+    {
+      "at": 1787624233854,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "ambient sleep music"
+    },
+    {
+      "at": 1787624237864,
+      "user": "admin",
+      "action": "🎵 pause",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787624238881,
+      "user": "admin",
+      "action": "🎵 resume",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787624243934,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787624437860,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787624456176,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787663535081,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787663535099,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → 〡All Members〡187"
+    },
+    {
+      "at": 1787663546888,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "lofi study beats"
+    },
+    {
+      "at": 1787663558005,
+      "user": "admin",
+      "action": "🎵 تشغيل أغنية",
+      "details": "jazz piano"
+    },
+    {
+      "at": 1787663562014,
+      "user": "admin",
+      "action": "🎵 حذف أغنية من القائمة",
+      "details": "#0"
+    },
+    {
+      "at": 1787663562825,
+      "user": "admin",
+      "action": "🎵 skip",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787663565832,
+      "user": "admin",
+      "action": "🎵 stop",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787663565838,
+      "user": "admin",
+      "action": "🔇 تعطيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃"
+    },
+    {
+      "at": 1787663628281,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787663641766,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787663641766,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787665633519,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787665633576,
+      "user": "admin",
+      "action": "🔑 إعداد كلمة سر سرية",
+      "details": ""
+    },
+    {
+      "at": 1787665633662,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787665908927,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787665909029,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787665910102,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اختبار اللوحة السرية"
+    },
+    {
+      "at": 1787666095288,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787666281966,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787666523806,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787666668583,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787666764435,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787666819495,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787667550877,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787667853778,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787667887298,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787667911544,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787667917286,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "لبابلا"
+    },
+    {
+      "at": 1787668415324,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787668449577,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787668469377,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787669144546,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787669144598,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787669145578,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اهلا بيكم في اللوحة السرية"
+    },
+    {
+      "at": 1787669351969,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787669352016,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787669352794,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اهلا بيكم"
+    },
+    {
+      "at": 1787669580980,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787669785815,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787669886724,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787669900173,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787669909192,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787670259213,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787670259259,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787670260061,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اهلا بيكم في اللوحة السرية"
+    },
+    {
+      "at": 1787670298848,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787670316997,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787670336988,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787670672707,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787670672753,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787670673602,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "-testing"
+    },
+    {
+      "at": 1787670912762,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787670912824,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787670913621,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اهلا بيكم في اللوحة السرية"
+    },
+    {
+      "at": 1787671038519,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787671038565,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787671176554,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787671176600,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787671472397,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787671482764,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787671509301,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787671524521,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "Red Bull\nاكتب اسم المستخدم وكلمة السر عشان تدخل اللوحة\n\n❌ اس"
+    },
+    {
+      "at": 1787671588176,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "# انك خليها خليها تشربو لانو"
+    },
+    {
+      "at": 1787671597911,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسمك"
+    },
+    {
+      "at": 1787671691184,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "بحبك"
+    },
+    {
+      "at": 1787671699597,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كس اختك"
+    },
+    {
+      "at": 1787671713925,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "يا عرص يا خول"
+    },
+    {
+      "at": 1787671726178,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "يا ابن الشرموطه"
+    },
+    {
+      "at": 1787671742639,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "اه اه اه اه اه اه  اه اه اه اه اه اه  اه اه اه اه اه اه"
+    },
+    {
+      "at": 1787671766621,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسي بيوجعني\nاه اه اه اه اه اه  اه اه اه اه اه اه  اه اه اه ا"
+    },
+    {
+      "at": 1787671810115,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسي بيوجعني اه اه اه اه اه اه اه اه اه اه اه اه اه اه اه اه "
+    },
+    {
+      "at": 1787671857024,
+      "user": "admin",
+      "action": "🔊 تفعيل القعود الصوتي",
+      "details": "𝑻𝒉𝒆 𝑩𝒆𝒂𝒄𝒉 𝑪𝒍𝒖𝒃 → ┆・🦞・𝐌𝐢𝐬𝐡𝐫𝐞𝐟"
+    },
+    {
+      "at": 1787671881868,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787671899387,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسمك"
+    },
+    {
+      "at": 1787671906220,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "يا عرص"
+    },
+    {
+      "at": 1787671917197,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "يا خول"
+    },
+    {
+      "at": 1787671980955,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسمك"
+    },
+    {
+      "at": 1787671992738,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسمك يا S8"
+    },
+    {
+      "at": 1787672009189,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "انت الي قحبه"
+    },
+    {
+      "at": 1787672031305,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "انت الي عرص"
+    },
+    {
+      "at": 1787672041875,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "انت الي قحبه"
+    },
+    {
+      "at": 1787672052325,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسك"
+    },
+    {
+      "at": 1787672062764,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "Boamaal حبيبي"
+    },
+    {
+      "at": 1787672078535,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "Boamaal حبييبي بيحبني بينيكني"
+    },
+    {
+      "at": 1787672108938,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "الفحل واحد  بس"
+    },
+    {
+      "at": 1787672127844,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "S8 حبيبي وي اخويا"
+    },
+    {
+      "at": 1787672424234,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787672435146,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787672440815,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "كسمك يا S8 كسي بيوجعني اه اه اه اه اه اه اه اه اه اه اه اه ا"
+    },
+    {
+      "at": 1787672747482,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787672747524,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787672877848,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787672904377,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787672904416,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787673046073,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787673058059,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787673104561,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787673110330,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "بيب"
+    },
+    {
+      "at": 1787673374264,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787673552280,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787673552322,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787673694291,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787673694334,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787673827906,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787673827948,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787673958015,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787673958061,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787674061966,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674062009,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787674103213,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674115212,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787674178917,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "حبيبي"
+    },
+    {
+      "at": 1787674338673,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674338713,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674354098,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787674375371,
+      "user": "admin",
+      "action": "🗣️ نطق بالصوت",
+      "details": "السلام عليكم"
+    },
+    {
+      "at": 1787674554593,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674554636,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    },
+    {
+      "at": 1787674617744,
+      "user": "admin",
+      "action": "تسجيل دخول",
+      "details": ""
+    },
+    {
+      "at": 1787674628458,
+      "user": "admin",
+      "action": "🔓 فتح اللوحة السرية",
+      "details": ""
+    }
+  ],
+  "bots": [
+    {
+      "id": "1536642926199971922",
+      "label": "bot music",
+      "token": "",
+      "addedAt": 1787614004864
+    }
+  ],
+  "guilds": {
+    "1536642926199971922_1506363031737860248": {
+      "prefix": "!",
+      "whitelistChannels": [],
+      "whitelistRoles": [],
+      "protection": {
+        "antiLinks": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "antiInvites": {
+          "enabled": false,
+          "action": "delete"
+        },
+        "badWords": {
+          "enabled": false,
+          "words": [],
+          "action": "delete"
+        },
+        "antiSpam": {
+          "enabled": false,
+          "maxMessages": 6,
+          "perSeconds": 5,
+          "action": "timeout"
+        },
+        "antiMention": {
+          "enabled": false,
+          "maxMentions": 6,
+          "action": "timeout"
+        },
+        "antiRaid": {
+          "enabled": false,
+          "maxJoins": 6,
+          "perMinutes": 1,
+          "action": "kick"
+        }
+      },
+      "welcome": {
+        "enabled": false,
+        "channelId": "",
+        "message": "أهلاً بك {user} في **{server}** 🎉\nأنت العضو رقم **{memberCount}**",
+        "embed": true,
+        "dmEnabled": false,
+        "dmMessage": "نورت سيرفر {server} 💜"
+      },
+      "leave": {
+        "enabled": true,
+        "channelId": "1541502310973440060",
+        "message": "**{username}** غادر السيرفر 😢\nعدد الأعضاء الآن: {memberCount}"
+      },
+      "autoRole": {
+        "enabled": false,
+        "roleId": ""
+      },
+      "logs": {
+        "enabled": false,
+        "channelId": "",
+        "events": {
+          "messageDelete": true,
+          "messageEdit": true,
+          "memberBan": true,
+          "memberKick": true,
+          "roleChanges": true,
+          "channelChanges": true,
+          "nickname": true,
+          "joins": true,
+          "leaves": true
+        }
+      },
+      "moderation": {
+        "modLogChannelId": ""
+      },
+      "tickets": {
+        "enabled": false,
+        "categoryId": "",
+        "supportRoleId": "",
+        "panelChannelId": "",
+        "welcomeMessage": "أهلاً بك في تذكرتك، اكتب مشكلتك وسيتم الرد عليك قريباً.",
+        "opened": 0
+      },
+      "customCommands": [],
+      "warnings": {},
+      "antiNuke": {
+        "enabled": false,
+        "punish": "removeroles",
+        "maxChannelDeletes": 3,
+        "maxRoleDeletes": 3,
+        "maxBans": 5,
+        "maxKicks": 5,
+        "windowSeconds": 60,
+        "whitelistIds": [],
+        "alertChannelId": ""
+      },
+      "xp": {
+        "enabled": false,
+        "xpPerMessage": 10,
+        "cooldownSeconds": 60,
+        "announceChannelId": "",
+        "levelUpMessage": "مبروك! وصلت لمستوى **{level}** 🎉"
+      },
+      "xpData": {},
+      "welcomeImage": {
+        "enabled": false,
+        "bgColor1": "#8b5cf6",
+        "bgColor2": "#4c1d95",
+        "textColor": "#ffffff"
+      },
+      "autoPoster": [],
+      "suggestions": {
+        "enabled": true,
+        "channelId": "1536589845340885133",
+        "items": [
+          {
+            "messageId": "1541604385598079087",
+            "number": 1,
+            "content": "kj",
+            "authorTag": "bibo_098",
+            "status": "pending",
+            "up": 0,
+            "down": 0,
+            "at": 1787617525957
+          }
+        ]
+      },
+      "menuRoles": {
+        "panels": []
+      },
+      "stats": {
+        "msgsToday": 32,
+        "joinsToday": 2,
+        "leavesToday": 0,
+        "dateKey": "2026-08-25",
+        "history": []
+      },
+      "lockedDown": false,
+      "voiceStay": {
+        "enabled": true,
+        "channelId": "1536589878106787920"
+      },
+      "streaks": {
+        "enabled": true,
+        "forumChannelId": "1543465337977307226",
+        "announceChannelId": "",
+        "data": {}
+      },
+      "streaksMeta": {}
+    }
+  },
+  "secretPass": {
+    "salt": "c4b04186a4e0b8ab18bc061a436d996a",
+    "hash": "a8908449680d092f4b88e17e2b1bed054f6d1728a332c2cecaeca857aee938764af8da0ea2308b9ba6cf7d57e7323bdda6622ca3b0fc369f8bf98ea78b61cd94"
+  }
+}
