@@ -28,18 +28,24 @@ class BotPool {
 
   async startAll() {
     const bots = storage.getBots();
-    // تشغيل على دفعات من 10 عشان السرعة والاستقرار
-    for (let i = 0; i < bots.length; i += 10) {
-      const chunk = bots.slice(i, i + 10);
-      await Promise.all(chunk.map(async (b) => {
+    for (const b of bots) {
+      try {
+        await this.launch(b);
+        console.log(`[BOT] ${b.label} شغال ✅`);
+      } catch (e) {
+        this.errors.set(b.id, e.message);
+        console.warn(`[BOT] إعادة محاولة "${b.label}"... (${e.message})`);
+        await new Promise((r) => setTimeout(r, 2500));
         try {
           await this.launch(b);
-          console.log(`[BOT] ${b.label} شغال ✅`);
-        } catch (e) {
-          this.errors.set(b.id, e.message);
-          console.error(`[BOT] فشل تشغيل "${b.label}": ${e.message}`);
+          console.log(`[BOT] ${b.label} شغال ✅ (بعد إعادة المحاولة)`);
+        } catch (e2) {
+          this.errors.set(b.id, e2.message);
+          console.error(`[BOT] فشل تشغيل "${b.label}": ${e2.message}`);
         }
-      }));
+      }
+      // مهلة 2000ms بين كل بوت لتفادي تضييق Discord Gateway Rate-Limit
+      await new Promise((r) => setTimeout(r, 2000));
     }
     console.log(`[POOL] اتشغل ${this.clients.size}/${bots.length} بوت`);
   }

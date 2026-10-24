@@ -19,3 +19,5 @@ krypton/data/*.log
 # Retain seed data and required directory structures
 !src/bot/seed/botdata.json
 !data/
+
+.vercel

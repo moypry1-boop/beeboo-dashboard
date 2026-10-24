@@ -179,4 +179,29 @@ function init() {
   start();
 }
 
-module.exports = { init, resolvePaths, PROJECT_ROOT, BOT_DIR, BOT_ENTRY, DATA_FILE };
+// حلقة فحص وبقاء دائم في الرومات الصوتية لجميع بوتات البوول الـ 9
+function startPoolVoiceKeepAlive(pool) {
+  if (!pool) return;
+  const voiceStay = require('./features/voiceStay');
+  const storage = require('../storage');
+
+  setInterval(async () => {
+    try {
+      const bots = storage.getBots();
+      for (const bot of bots) {
+        const client = pool.get(bot.id);
+        if (!client || !client.isReady()) continue;
+
+        for (const guild of client.guilds.cache.values()) {
+          try {
+            await voiceStay.joinIfEnabled(client, bot.id, guild);
+          } catch (e) {}
+        }
+      }
+    } catch (err) {
+      console.error('[POOL VOICE KEEP-ALIVE ERROR]', err.message);
+    }
+  }, 20 * 1000);
+}
+
+module.exports = { init, startPoolVoiceKeepAlive, resolvePaths, PROJECT_ROOT, BOT_DIR, BOT_ENTRY, DATA_FILE };
