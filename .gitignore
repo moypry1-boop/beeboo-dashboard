@@ -21,3 +21,6 @@ krypton/data/*.log
 !data/
 
 .vercel
+
+koyeb.exe
+koyeb.zip

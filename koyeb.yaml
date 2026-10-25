@@ -1,0 +1,27 @@
+name: beeboo-discord-bots
+services:
+  - name: bot-worker
+    type: web
+    git:
+      repository: github.com/moypry1-boop/beeboo-dashboard
+      branch: main
+      buildpack:
+        run_command: node worker.js
+    instance_type: nano
+    regions:
+      - fra
+    ports:
+      - port: 10000
+        path: /
+    routes:
+      - path: /
+        port: 10000
+    health_checks:
+      - http:
+          port: 10000
+          path: /health
+    env:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
