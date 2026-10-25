@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: beeboo-bot-worker
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node worker.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: BOT_TOKEN_1
+        sync: false
+      - key: BOT_TOKEN_2
+        sync: false
+      - key: BOT_TOKEN_3
+        sync: false
+      - key: BOT_TOKEN_4
+        sync: false
+      - key: BOT_TOKEN_5
+        sync: false
+      - key: BOT_TOKEN_6
+        sync: false
+      - key: BOT_TOKEN_7
+        sync: false
+      - key: BOT_TOKEN_8
+        sync: false
+      - key: BOT_TOKEN_9
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: KRYPTON_BOT_TOKEN
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
